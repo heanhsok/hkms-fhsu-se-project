@@ -29,4 +29,27 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    
+    public function questions() 
+    {
+        return $this->hasMany('App\Question');
+    }
+
+    public function answers() 
+    {
+        return $this->hasMany('App\Answer');
+    }
+
+    public function questionVotes() 
+    {
+        return $this->hasMany('App\QuestionVote');
+    }
+
+    public function answerVotes() 
+    {
+        return $this->hasMany('App\AnswerVote');
+    }
+
+
 }
