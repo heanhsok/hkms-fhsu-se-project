@@ -34,10 +34,17 @@ class User extends Authenticatable
         return $this->hasOne('App\UserProfile');
     }
 
-    public function user_careers() {
-        return $this->hasMany('App\UserCareers');
+    public function user_education() {
+        return $this->hasMany('App\UserEducation');
     }
 
+    public function user_work_experience() {
+        return $this->hasMany('App\UserWorkExp');
+    }
+
+    public function user_volunteer_experience() {
+        return $this->hasMany('App\UserVolunteerExperience');
+    }
     
     public function questions() 
     {
