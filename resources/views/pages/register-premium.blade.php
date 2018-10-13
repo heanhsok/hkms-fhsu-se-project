@@ -19,7 +19,7 @@
   <!-- Select Position -->
   <div class="form-label-group form-inline">
     <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
-      <option selected>Choose Your Positiion</option>
+      <option selected>Choose Your Position</option>
       <option value="Professor">Professor</option>
       <option value="Employer">Employer</option>
     </select>
