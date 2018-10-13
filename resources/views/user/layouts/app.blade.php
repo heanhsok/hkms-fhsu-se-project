@@ -71,7 +71,9 @@
         </nav>
 
         <main class="py-4">
+            <div style="padding-left: 200px">
             @yield('content')
+            </div>
         </main>
     </div>
 </body>
