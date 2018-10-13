@@ -30,6 +30,14 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function user_profile() {
+        return $this->hasOne('App\UserProfile');
+    }
+
+    public function user_careers() {
+        return $this->hasMany('App\UserCareers');
+    }
+
     
     public function questions() 
     {

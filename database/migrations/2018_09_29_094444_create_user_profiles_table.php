@@ -14,12 +14,21 @@ class CreateUserProfilesTable extends Migration
     public function up()
     {
         Schema::create('user_profiles', function (Blueprint $table) {
+
             $table->increments('id');
             $table->timestamps();
             $table->integer('user_id')->unsigned();
             $table->string('first_name');
             $table->string('middle_name');
             $table->string('last_name');
+
+            $table->smallInteger('isStudent');
+            // 1 = student
+            // 0 = working professional
+
+            $table->boolean('isVerified')->default(false); // email verify
+            $table->boolean('isApproved')->default(false); // approve by admin
+
 
             $table->enum('gender',['male','female']);
             $table->string('phone_number');
@@ -35,18 +44,19 @@ class CreateUserProfilesTable extends Migration
             $table->string('city')->nullable();
             $table->string('country')->nullable();
 
-            //student or working professional?
+            // has many interest
+            // has many careers
+            // has many educations
 
-            //interest
-            //education
-            //carreer, working experience - specialty, position, company, start date, end date
-            //community service/volunteer experiences
-            //isVerified
+            
             //following tags
             //following other users
-            //user upvote and downvote questions
-            //user upvote and downvote comments
 
+            // PK of this table is used in other tables
+            //user upvote and downvote post/question
+            //user upvote and downvote comments/answers
+
+            
         });
     }
 
