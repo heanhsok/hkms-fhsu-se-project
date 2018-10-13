@@ -2,11 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\UserEducations;
 use Illuminate\Http\Request;
 
-class UserEducationsController extends Controller
+class UserFollowController extends Controller
 {
+    public function getFollowing() {
+
+    }
+
+    public function getFollower() {
+        
+    }
+
+    public function follow() {
+        
+    }
+
+    public function unfollow() {
+
+    }
 
     /**
      * Display a listing of the resource.
@@ -42,10 +56,10 @@ class UserEducationsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\UserEducations  $userEducations
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(UserEducations $userEducations)
+    public function show($id)
     {
         //
     }
@@ -53,10 +67,10 @@ class UserEducationsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\UserEducations  $userEducations
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserEducations $userEducations)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +79,10 @@ class UserEducationsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UserEducations  $userEducations
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserEducations $userEducations)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +90,10 @@ class UserEducationsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UserEducations  $userEducations
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserEducations $userEducations)
+    public function destroy($id)
     {
         //
     }
