@@ -16,18 +16,6 @@
 
                     You are logged in!
 
-                    @role('admin')
-                        <h3>You are Admin User</h3>
-                    @endrole
-
-                    
-                    @role('standard')
-                        <h3>You are Standard User</h3>
-                    @endrole
-
-                    @role('premiem')
-                        <h3>You are Premiem User</h3>
-                    @endrole
 
                 </div>
             </div>
