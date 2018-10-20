@@ -4,10 +4,8 @@
         @include('includes.head')
     </head>
     <body>
-        <header>
-            @include ('includes.nav-bar')
-            @include ('includes.sidebar')
-        </header>
-        @yield('content')
+        <div class="main-content">
+            @yield('content')
+        </div>
     </body>
 </html>

@@ -10,13 +10,20 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-//Includes
-@import 'includes/nav-bar';
-@import 'includes/sidebar';
-
+// layouts
+@import 'layouts/app';
 //Pages
-@import 'pages/home-nonlogin';
-@import 'pages/register-standard';
-@import 'pages/register-premium';
+@import 'pages/register';
 @import 'pages/login';
-@import 'pages/new-jobs';
+@import 'pages/homepage_nonlogin';
+
+//includes
+@import 'includes/main-nav';
+@import 'includes/sidenav';
+@import 'includes/opportunity-detail';
+@import 'includes/opportunity-post';
+@import 'includes/question-detail';
+@import 'includes/question-post';
+@import 'includes/right-sidebar';
+@import 'includes/left-sidebar';
+@import 'includes/login-reminder';

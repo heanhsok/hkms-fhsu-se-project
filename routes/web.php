@@ -10,16 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('pages.home-nonlogin');
+Route::get('/', function(){
+    return view ('pages.homepage_nonlogin');
 });
-Route::get('/register-standard', function () {
-    return view('pages.register-standard');
-});
-Route::get('/register-premium', function () {
-    return view('pages.register-premium');
+Route::get('/register', function () {
+    return view('pages.register');
 });
 Route::get('/login', function () {
     return view('pages.login');
+});
+Route::get('/forum', function () {
+    return view('pages.forum-home');
 });
