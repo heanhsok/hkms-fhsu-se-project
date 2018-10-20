@@ -58,6 +58,8 @@ class ForumController extends Controller
     //upvote / downvote forum question
     public function questionVote(Request $request)
     {
+        
+        return 1;
         $question_id = $request['questionId'];
         $is_upvote = $request['isUpVote'] === 'true';
         $update = false;
@@ -111,6 +113,7 @@ class ForumController extends Controller
        
         return redirect()->route('forum.index',compact('questions'));
     }
+
 
      public function deleteQuestion($question_id)
     {

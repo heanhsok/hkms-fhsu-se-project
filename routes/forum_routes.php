@@ -48,6 +48,10 @@ Route::group(['prefix' => 'forum'],function(){
     	'uses' => 'ForumController@storeQuestion'
     ]);
 
+    Route::post('vote',[
+        'as' => 'forum.questionVote',
+        'uses' => 'ForumCotroller@questionVote'
+    ]);
 
 });
 

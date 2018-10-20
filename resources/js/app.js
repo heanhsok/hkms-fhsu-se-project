@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -25,8 +24,3 @@ var questionId = 0;
 var questionBodyElement = null;
 
 
-$('.vote').on('click', function(event) {
-    event.preventDefault();
-    var isUpVote = event.target.previousElementSibling == null ? true : false;
-    console.log(isUpVote);
-});
