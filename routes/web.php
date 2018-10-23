@@ -12,16 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect('home');
 });
 
 Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::group(['middleware'=>['auth']], function(){
-    Route::get('/home', 'HomeController@index')->name('home');
+    
+
     Route::get('/profile', function(){
         return view('user.profile');
     })->name('user.profile');
+    
 });
 
 Route::group(['prefix' => 'admin','middleware' => ['role:admin']],function(){

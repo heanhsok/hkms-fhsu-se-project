@@ -1,63 +1,7 @@
-.header {
-	position: absolute;
-	width: 100%;
-	z-index: 3;
-	height: 55px;
-	background-color: #e7e6e6;
+.bg-company-red {
+    background-color: #E7E6E6;
+    border-bottom: 1px solid #002A3F;
 }
-/* logo in header(mobile version) and side-nav (tablet & desktop) */
-.logo {
-	height: 55px;
-	padding: 10px;
-	font-weight: 700;
-}
-.header .logo {
-	float: left;
-}
-.header .logo {
-	height: 55px;
-	z-index: 1;
-	padding: 10px;
-	font-weight: 700;
-}
-.logo img{
-    height: 35px;
-}
-.logo .symbol{
-    height: 35px;
+.nav-item i{
     margin-right: 5px;
-}
-.nav-trigger {
-	position: relative;
-	float: right;
-	width: 20px;
-	height: 55px;
-	right: 30px;
-	display: block;
-}
-.nav-trigger span, .nav-trigger span:before, span:after {
-	width: 20px;
-	height: 2px;
-	background-color: #F66C39;
-	position: absolute;
-}
-.nav-trigger span {
-	top: 50%;
-}
-.nav-trigger span:before, .nav-trigger span:after {
-	content: '';
-}
-.nav-trigger span:before {
-	top: -6px;
-}
-.nav-trigger span:after {
-	top: 6px;
-}
-@media screen and (min-width: 600px) {
-	.nav-trigger {
-			display: none;
-		}
-		.nav-trigger span, .nav-trigger span:before, span:after {
-			background-color: #F66C39;
-		}
 }

@@ -1,0 +1,27 @@
+.opportunity-section{
+    margin-top: 20px;
+}
+.scrolling-wrapper-flexbox {
+    &::-webkit-scrollbar {
+    display: none;
+  }
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+-webkit-overflow-scrolling: touch;
+  .card {
+    flex: 0 0 auto;
+  }
+}
+.op-heading{
+    color: #F66C39;
+    border-bottom: 1px solid #CECECE;
+    line-height: 40px;
+}
+.load-more{
+    margin-top: 10px;
+    a{
+        text-decoration: none;
+        color: #F66C39;
+    }
+}

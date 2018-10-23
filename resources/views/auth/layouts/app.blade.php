@@ -4,8 +4,6 @@
         @include('includes.head')
     </head>
     <body>
-        <div class="main-content">
-            @yield('content')
-        </div>
+        @yield('content')
     </body>
 </html>

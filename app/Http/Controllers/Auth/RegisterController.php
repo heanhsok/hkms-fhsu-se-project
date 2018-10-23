@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\UserProfile;
 use App\UserEducation;
+use App\UserWorkExp;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -69,6 +70,7 @@ class RegisterController extends Controller
         // dd($data);
 
         if ($data['userType'] == 'standard') {
+
             $user = User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
@@ -79,9 +81,10 @@ class RegisterController extends Controller
     
             $user_profile = UserProfile::create([
                 'user_id' => $user->id,
-                'first_name' => $data['name'],
+                'first_name' => $data['firstname'],
                 'last_name' => $data['last_name'],
                 'isStudent' => 1,
+                'gender' => $data['gender'],
                 'phone_number' => $data['phone_number'],
     
             ]);
@@ -93,22 +96,40 @@ class RegisterController extends Controller
                 'major'=> $data['major'],
             ]);
 
+        }
+        else if ($data['userType'] == 'premiem') {
+            // dd($data);
 
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
+    
+            $user->attachRole(2);
+    
+            $user_profile = UserProfile::create([
+                'user_id' => $user->id,
+                'first_name' => $data['firstname'],
+                'last_name' => $data['last_name'],
+                'isStudent' => 0,
+                'gender' => $data['gender'],
+                'phone_number' => $data['phone_number']
+    
+            ]);
 
+            $user_workexp = UserWorkExp::create([
+                'user_id' => $user->id,
+                'specialty' => $data['specialty'],
+                'position' => $data['position'],
+                'workplace'=> $data['workplace'],
+            ]);
 
         }
-        // else if ($data['dataType'] == 'premiem') {
-
-        // }
         
 
 
-        // dd($user->id);
-
-        /*
-  "major" => "IT"
-  "university" => "AUPP"
-        */
+       
         return $user;
     }
 }
