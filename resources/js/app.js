@@ -6,7 +6,9 @@
  */
 
 require('./bootstrap');
-require('./includes/sidebar');
+require('./includes/sidenav');
+require('./includes/left-sidebar');
+require('./pages/homepage');
 
 window.Vue = require('vue');
 

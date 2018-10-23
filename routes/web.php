@@ -11,7 +11,7 @@
 |
 */
 Route::get('/', function(){
-    return view ('pages.homepage_nonlogin');
+    return view ('pages.homepage');
 });
 Route::get('/register', function () {
     return view('pages.register');
@@ -21,4 +21,7 @@ Route::get('/login', function () {
 });
 Route::get('/forum', function () {
     return view('pages.forum-home');
+});
+Route::get('/opportunity', function () {
+    return view('pages.opportunity-home');
 });

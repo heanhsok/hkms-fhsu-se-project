@@ -4,15 +4,15 @@
             <h3>Join The Biggest Community Built for Cambodian University Students</h3>
         </div>
         <div class="col-sm-6 login-btn">
-            <div class="row login-row">
+            <div class="row btn-row">
                 <div class="first-login">
                     <p>Already have an account?</p>
-                    <button type="button" name="button">Log in</button>
+                    <button class="login-bt" type="button" name="button">Log in</button>
                 </div>
                 <p>or</p>
                 <div class="signup-btn">
                     <p>Don't have an account?</p>
-                    <button type="button" name="button">Sign up</button>
+                    <button class="signup-bt" type="button" name="button">Sign up</button>
                 </div>
             </div>
         </div>
