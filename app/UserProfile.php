@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserProfile extends Model
 {
     //
-
+ 
     protected $fillable = [
         'user_id', 
         'first_name', 
@@ -24,11 +24,12 @@ class UserProfile extends Model
         'commune',
         'district',
         'city',
-        'country'
+        'country',
+        'phone_number'
     ];
 
     public function user() {
-        return $this->belongsTo('App\User')
+        return $this->belongsTo('App\User');
     }
 
 }

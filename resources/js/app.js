@@ -6,6 +6,7 @@
  */
 
 require('./bootstrap');
+require('./includes/sidebar');
 
 window.Vue = require('vue');
 
@@ -19,14 +20,4 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 
 const app = new Vue({
     el: '#app'
-});
-
-var questionId = 0;
-var questionBodyElement = null;
-
-
-$('.vote').on('click', function(event) {
-    event.preventDefault();
-    var isUpVote = event.target.previousElementSibling == null ? true : false;
-    console.log(isUpVote);
 });

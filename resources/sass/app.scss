@@ -1,6 +1,8 @@
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
 // Variables
 @import 'variables';
@@ -8,7 +10,20 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+// layouts
+@import 'layouts/app';
+//Pages
+@import 'pages/register';
+@import 'pages/login';
+@import 'pages/homepage_nonlogin';
+
+//includes
+@import 'includes/main-nav';
+@import 'includes/sidenav';
+@import 'includes/opportunity-detail';
+@import 'includes/opportunity-post';
+@import 'includes/question-detail';
+@import 'includes/question-post';
+@import 'includes/right-sidebar';
+@import 'includes/left-sidebar';
+@import 'includes/login-reminder';
