@@ -34,3 +34,7 @@ Route::group(['prefix' => 'admin','middleware' => ['role:admin']],function(){
         return view('admin.index');
     })->name('admin.index');
 });
+
+Route::get('/opportunity', function() {
+    return view('user.opportunity.index');
+})->name('opportunity.index');
