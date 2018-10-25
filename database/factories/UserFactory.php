@@ -21,3 +21,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+//how to run in tinker
+//factory(App\User::class, 50)->create()->each(function($u) { $u->attachRole(1); });

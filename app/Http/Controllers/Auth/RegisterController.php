@@ -82,7 +82,7 @@ class RegisterController extends Controller
             $user_profile = UserProfile::create([
                 'user_id' => $user->id,
                 'first_name' => $data['firstname'],
-                'last_name' => $data['last_name'],
+                'last_name' => $data['lastname'],
                 'isStudent' => 1,
                 'gender' => $data['gender'],
                 'phone_number' => $data['phone_number'],
@@ -111,7 +111,7 @@ class RegisterController extends Controller
             $user_profile = UserProfile::create([
                 'user_id' => $user->id,
                 'first_name' => $data['firstname'],
-                'last_name' => $data['last_name'],
+                'last_name' => $data['lastname'],
                 'isStudent' => 0,
                 'gender' => $data['gender'],
                 'phone_number' => $data['phone_number']
