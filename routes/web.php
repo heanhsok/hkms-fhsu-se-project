@@ -26,9 +26,7 @@ Route::get('/about', function() {
 Route::group(['middleware'=>['auth']], function(){
     
 
-    Route::get('/profile', function(){
-        return view('user.profile');
-    })->name('user.profile');
+    Route::resource('profile', 'UserProfileController');
     
 });
 

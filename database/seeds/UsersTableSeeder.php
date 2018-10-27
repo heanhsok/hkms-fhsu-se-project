@@ -13,7 +13,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
+        // load default user account
+
         $data = [
             [
                 'name' => 'standard',
@@ -33,7 +35,7 @@ class UsersTableSeeder extends Seeder
         ];
 
         User::insert($data);
-
+        
         $user = User::where('email', '=', 'standard@gmail.com')->first();
         $user->attachRole(1);
 
@@ -42,5 +44,16 @@ class UsersTableSeeder extends Seeder
 
         $user = User::where('email', '=', 'admin@gmail.com')->first();
         $user->attachRole(3);
+
+        // load testing user account
+
+        factory(App\User::class, 50)
+            ->create()->each(function($u) { 
+                $u->attachRole(rand(1,2));
+                factory(App\UserProfile::class)->create(['user_id'=>$u->id]);
+                factory(App\UserWorkExp::class,rand(3,4))->create(['user_id'=>$u->id]);
+                factory(App\UserEducation::class,rand(1,2))->create(['user_id'=>$u->id]);
+                factory(App\UserVolunteerExp::class,rand(3,4))->create(['user_id'=>$u->id]);
+            });
     }
 }
