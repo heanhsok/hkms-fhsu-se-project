@@ -15,7 +15,10 @@ class OpportunityPageController extends Controller
     public function index()
     {
         //
-        return view('user.opportunity.index');
+        // return view('user.opportunity.index');
+        return view('user.opportunity.index')->with([
+            'pages' => OpportunityPage::all()
+        ]);
     }
 
     /**
@@ -45,9 +48,16 @@ class OpportunityPageController extends Controller
      * @param  \App\OpportunityPage  $opportunityPage
      * @return \Illuminate\Http\Response
      */
-    public function show(OpportunityPage $opportunityPage)
+    public function show($type)
     {
-        //
+        $page = OpportunityPage::where('type', $type)->first();
+        $posts = $page->posts()->get();
+
+        return view('user.opportunity.show')->with([
+            'pages' =>  OpportunityPage::all(),
+            'current_page' => $page,
+            'posts' => $posts
+        ]);
     }
 
     /**

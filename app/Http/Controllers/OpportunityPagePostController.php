@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\OpportunityPage;
 use App\OpportunityPagePost;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,10 @@ class OpportunityPagePostController extends Controller
     public function index()
     {
         //
+        // dd(OpportunityPage::find(1)->first()->posts()->get());
+
+        return redirect()->route('opportunity.post.show',['opportunity'=>'event', 'post'=>1]);
+        
     }
 
     /**
@@ -22,9 +27,13 @@ class OpportunityPagePostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($type)
     {
         //
+        // dd(OpportunityPage::all());
+        return view('user.opportunity.post.create')->with([
+            'pages' => OpportunityPage::all()
+        ]);
     }
 
     /**
@@ -36,6 +45,24 @@ class OpportunityPagePostController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request);
+
+        if ($request->hasFile('picture_file')) {
+            $picture = $request->picture_file;
+            $picture_name = time().$picture->getClientOriginalName();
+            $picture->move('upload/picture/', $picture_name);
+
+            $request->request->add(['picture'=> $picture_name]);
+        }
+
+        // dd($request);
+
+        $post = OpportunityPagePost::create($request->all());
+
+        return redirect()->route('opportunity.post.show',[
+            'opportunity'=>$post->page()->first()->type, 
+            'post'=>$post->id
+        ]);
     }
 
     /**
@@ -44,9 +71,13 @@ class OpportunityPagePostController extends Controller
      * @param  \App\OpportunityPagePost  $opportunityPagePost
      * @return \Illuminate\Http\Response
      */
-    public function show(OpportunityPagePost $opportunityPagePost)
+    public function show($opportunity, $post)
     {
         //
+        // dd($post);
+        return view('user.opportunity.post.show')->with([
+            'post' => OpportunityPagePost::where('id',$post)->first()
+        ]);
     }
 
     /**
@@ -55,9 +86,13 @@ class OpportunityPagePostController extends Controller
      * @param  \App\OpportunityPagePost  $opportunityPagePost
      * @return \Illuminate\Http\Response
      */
-    public function edit(OpportunityPagePost $opportunityPagePost)
+    public function edit($opportunity, $post)
     {
         //
+        return view('user.opportunity.post.edit')->with([
+            'pages' => OpportunityPage::all(),
+            'post' => OpportunityPagePost::where('id',$post)->first()
+        ]);
     }
 
     /**
@@ -67,9 +102,26 @@ class OpportunityPagePostController extends Controller
      * @param  \App\OpportunityPagePost  $opportunityPagePost
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OpportunityPagePost $opportunityPagePost)
+    public function update(Request $request, $page, $id)
     {
-        //
+        if ($request->hasFile('picture_file')) {
+            $picture = $request->picture_file;
+            $picture_name = time().$picture->getClientOriginalName();
+            $picture->move('upload/picture/', $picture_name);
+
+            $request->request->add(['picture'=> $picture_name]);
+        }
+
+        // dd(OpportunityPagePost::find($id));
+
+         OpportunityPagePost::find($id)->fill($request->all())->save();
+
+         $post =OpportunityPagePost::find($id);
+
+        return redirect()->route('opportunity.post.show',[
+            'opportunity'=>$post->page()->first()->type, 
+            'post'=>$post->id
+        ]);
     }
 
     /**
@@ -78,8 +130,10 @@ class OpportunityPagePostController extends Controller
      * @param  \App\OpportunityPagePost  $opportunityPagePost
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OpportunityPagePost $opportunityPagePost)
+    public function destroy($page, $id)
     {
         //
+        OpportunityPagePost::find($id)->delete();
+        return redirect()->route('opportunity.index');
     }
 }

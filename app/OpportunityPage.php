@@ -14,7 +14,7 @@ class OpportunityPage extends Model
         'status'
     ];
 
-    public function post() {
+    public function posts() {
         return $this->hasMany('App\OpportunityPagePost');
     }
 

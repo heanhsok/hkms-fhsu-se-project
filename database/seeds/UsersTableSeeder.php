@@ -47,7 +47,7 @@ class UsersTableSeeder extends Seeder
 
         // load testing user account
 
-        factory(App\User::class, 50)
+        factory(App\User::class, 10)
             ->create()->each(function($u) { 
                 $u->attachRole(rand(1,2));
                 factory(App\UserProfile::class)->create(['user_id'=>$u->id]);

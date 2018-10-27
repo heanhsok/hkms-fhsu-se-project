@@ -34,6 +34,10 @@ Route::group(['middleware'=>['auth']], function(){
 
     Route::resource('volunteer', 'UserVolunteerExpsController');
 
+    Route::resource('opportunity', 'OpportunityPageController');
+    
+    Route::resource('opportunity.post', 'OpportunityPagePostController');
+
     // Route::resource('/education', 'UserProfileController');
     
 });
@@ -44,6 +48,6 @@ Route::group(['prefix' => 'admin','middleware' => ['role:admin']],function(){
     })->name('admin.index');
 });
 
-Route::get('/opportunity', function() {
-    return view('user.opportunity.index');
-})->name('opportunity.index');
+// Route::get('/opportunity', function() {
+//     return view('user.opportunity.index');
+// })->name('opportunity.index');
