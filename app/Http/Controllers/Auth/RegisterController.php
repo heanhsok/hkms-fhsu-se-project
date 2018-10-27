@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\UserProfile;
+use App\UserEducation;
+use App\UserWorkExp;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -63,14 +66,70 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
 
-        $user->attachRole(1);
+        // dd($data);
 
+        if ($data['userType'] == 'standard') {
+
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
+    
+            $user->attachRole(1);
+    
+            $user_profile = UserProfile::create([
+                'user_id' => $user->id,
+                'first_name' => $data['firstname'],
+                'last_name' => $data['last_name'],
+                'isStudent' => 1,
+                'gender' => $data['gender'],
+                'phone_number' => $data['phone_number'],
+    
+            ]);
+
+            $user_education = UserEducation::create([
+                'user_id' => $user->id,
+                'school' => $data['name'],
+                'degree' => $data['degree'],
+                'major'=> $data['major'],
+            ]);
+
+        }
+        else if ($data['userType'] == 'premiem') {
+            // dd($data);
+
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
+    
+            $user->attachRole(2);
+    
+            $user_profile = UserProfile::create([
+                'user_id' => $user->id,
+                'first_name' => $data['firstname'],
+                'last_name' => $data['last_name'],
+                'isStudent' => 0,
+                'gender' => $data['gender'],
+                'phone_number' => $data['phone_number']
+    
+            ]);
+
+            $user_workexp = UserWorkExp::create([
+                'user_id' => $user->id,
+                'specialty' => $data['specialty'],
+                'position' => $data['position'],
+                'workplace'=> $data['workplace'],
+            ]);
+
+        }
+        
+
+
+       
         return $user;
     }
 }

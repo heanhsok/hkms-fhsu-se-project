@@ -19,10 +19,10 @@ class CreateUserEducationsTable extends Migration
             $table->string('school');
             $table->string('degree');
             $table->string('major');
-            $table->string('grade');
+            $table->string('grade')->nullable();;
             $table->text('desc')->nullable();
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->date('start_date')->nullable();;
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
     }

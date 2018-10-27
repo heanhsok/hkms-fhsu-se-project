@@ -1,25 +1,37 @@
 @extends('user.layouts.app')
-
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">User Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-
-
-                </div>
-            </div>
+    @include('includes.main-nav')
+    
+    @guest
+        @include('includes.login-reminder')
+    @endguest
+    <!-- New Opportunities -->
+    <div class="container opportunity-section">
+        <h4 class="op-heading">New Opportunities</h4>
+        <div class="scrolling-wrapper-flexbox">
+                @include('includes.opportunity-post')
+                @include('includes.opportunity-post')
+                @include('includes.opportunity-post')
+                {{-- @include('includes.opportunity-post')
+                @include('includes.opportunity-post')
+                @include('includes.opportunity-post')
+                @include('includes.opportunity-post') --}}
         </div>
     </div>
-</div>
-@endsection
+    <!-- End Section -->
+    <!-- Forum Section -->
+    <div class="container opportunity-section">
+        <h4 class="op-heading">New Questions</h4>
+        <div class="row">
+            <div class="col-6">
+                    @include('includes.question-post')
+                    @include('includes.question-post')
+            </div>
+            <div class="col-6">
+                    @include('includes.question-post')
+                    @include('includes.question-post')
+            </div>
+        </div>
+        <h5 class="text-center load-more"> <a href="/forum">View All</a> </h5>
+    </div>
+@stop

@@ -1,0 +1,43 @@
+.left-sidebar{
+    width: 100%;
+    border-right: 1px solid #CECECE;
+    padding: 5px 0 5px 0;
+    background: #fff;
+    height: 100%;
+}
+
+.sidebar-menu ul li {
+  border-bottom: 1px solid #E7E6E6;
+  margin-bottom: 15px;
+}
+.sidebar-menu ul {
+  list-style-type: none;
+}
+
+.sidebar-menu ul li:last-child {
+  border-bottom: none;
+}
+
+.sidebar-menu ul li a {
+  color: #002A3F;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+}
+.sidebar-menu ul li a:hover {
+  background-color: #CECECE;
+  color: #5b9bd1;
+}
+
+.sidebar-menu ul li.active {
+  border-bottom: none;
+}
+
+.sidebar-menu ul li.active a {
+  color: #F66C39;
+  margin-left: -2px;
+  text-decoration: none;
+}
+.forum-topic{
+    margin-left: 10px;
+}

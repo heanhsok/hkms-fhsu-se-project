@@ -18,10 +18,10 @@ class CreateUserWorkExpsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('specialty')->nullable();
             $table->string('position');
-            $table->string('institution');
+            $table->string('workplace');
             $table->text('desc')->nullable();
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
     }

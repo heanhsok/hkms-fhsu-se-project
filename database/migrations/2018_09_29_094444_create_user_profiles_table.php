@@ -19,7 +19,7 @@ class CreateUserProfilesTable extends Migration
             $table->timestamps();
             $table->integer('user_id')->unsigned();
             $table->string('first_name');
-            $table->string('middle_name');
+            $table->string('middle_name')->nullable();
             $table->string('last_name');
 
             $table->smallInteger('isStudent');
@@ -31,10 +31,10 @@ class CreateUserProfilesTable extends Migration
 
 
             $table->enum('gender',['male','female']);
-            $table->string('phone_number');
+            $table->string('phone_number')->nullable();
 
-            $table->string('biography');
-            $table->string('profile_picture');
+            $table->string('biography')->nullable();
+            $table->string('profile_picture')->nullable();
 
             //address
             $table->string('street_number')->nullable();

@@ -15,6 +15,7 @@ class OpportunityPageController extends Controller
     public function index()
     {
         //
+        return view('user.opportunity.index');
     }
 
     /**

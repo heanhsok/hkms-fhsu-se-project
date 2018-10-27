@@ -1,0 +1,60 @@
+.login-reminder{
+    background-color: #002A3F;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+.login-note{
+    color: #F66C39;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+}
+.login-btn{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+}
+.first-login{
+    margin-right: 30px;
+}
+.signup-btn{
+    margin-left: 30px;
+}
+.signup-bt{
+            width: 100px;
+            height: 30px;
+            text-align: center;
+			outline: none;
+			border: none;
+			border-radius: 10px;
+			background: #F66C39;
+			color: #fff;
+			cursor: pointer;
+			transition: 0.4s ease;
+			&:hover{
+				background: dodgerblue;
+				color: white;
+            }
+}
+.login-bt{
+            width: 100px;
+            height: 30px;
+            text-align: center;
+			outline: none;
+			border: none;
+			border-radius: 10px;
+			background: #F66C39;
+			color: #fff;
+			cursor: pointer;
+			transition: 0.4s ease;
+			&:hover{
+				background: dodgerblue;
+				color: white;
+            }
+}

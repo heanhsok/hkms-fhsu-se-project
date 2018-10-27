@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserEducations extends Model
+class UserEducation extends Model
 {
     //
 
@@ -20,6 +20,6 @@ class UserEducations extends Model
     ];
 
     public function user() {
-        return $this->belongsTo('App\User')
+        return $this->belongsTo('App\User');
     }
 }

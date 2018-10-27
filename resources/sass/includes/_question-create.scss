@@ -1,0 +1,70 @@
+.q-create{
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: hsla(0, 0, 0, .2) 0 4px 2px -2px;
+    font-family: "adelle-sans", sans-serif;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+.profile-post{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+    margin-left: 5px;
+}
+.profile-post .profileName{
+    margin-top: 20px;
+}
+.profile-post img {
+  border-radius: 50%;
+  height: 30px;
+  position: relative;
+  width: 30px;
+  margin-right: 7px;
+}
+.q-create textarea {
+        width: 95%;
+      border: 0;
+      outline: 0;
+      padding: 5px 0 0 5px;
+      resize: none;
+}
+.q-create .post-topics {
+    width: 95%;
+    height: 30px;
+      border: 1px solid #E7E6E6;
+      outline: 0;
+      padding: 5px 0 0 5px;
+}
+
+.q-create-footer{
+    border-top: 1px solid lighten(#333, 70%);
+    height: 35px;
+    display: inline-block;
+    width: 100%;
+}
+.q-create-footer ul {
+    display: inline-flex;
+    flex-direction: row;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+.q-create-footer li {
+    color: lighten(#333, 40%);
+    font-size: .75rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    margin-right: 10px;
+    & a{
+        text-decoration: none;
+    }
+}
+.left-create-footer{
+    float: left;
+}
+.right-create-footer{
+    float: right;
+}

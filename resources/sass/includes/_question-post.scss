@@ -1,0 +1,97 @@
+.q-post{
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: hsla(0, 0, 0, .2) 0 4px 2px -2px;
+    font-family: "adelle-sans", sans-serif;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+.q-title{
+    padding-top: 10px;
+}
+.row .q-account{
+    align-items: center;
+    margin-left: 5px;
+}
+
+.q-account-img{
+    border-radius: 50%;
+    display: inline-block;
+    height: 30px;
+    position: relative;
+    width: 30px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+}
+.acc-brief .authorName{
+    font-size: 11px;
+    color: #F66C39;
+}
+.acc-brief .aboutAuthor{
+    font-size: 9px;
+    font-style: italic;
+    font-weight: lighter;
+    margin-top: -20px;
+}
+.acc-brief .totalActivities{
+    font-size: 9px;
+    font-style: italic;
+    font-weight: lighter;
+    margin-top: -20px;
+}
+.q-summary{
+    color: lighten(#333, 10%);
+}
+.q-tags{
+    margin-top: -15px;
+}
+.q-tags ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+}
+.q-tags li + li {
+    margin-left: .5rem;
+}
+.q-tags a {
+    background-color: #ff4f00;
+    border-radius: 5px;
+    color: lighten(#fff, 40%);
+    font-size: .75rem;
+    letter-spacing: 1px;
+    padding: 0 .5rem;
+    text-align: center;
+    text-decoration: none;
+}
+.q-footer{
+    border-top: 1px solid lighten(#333, 70%);
+    height: 35px;
+    display: inline-block;
+    width: 100%;
+}
+.q-footer ul {
+    display: inline-flex;
+    flex-direction: row;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+.q-footer li {
+    color: lighten(#333, 40%);
+    font-size: .75rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    margin-right: 10px;
+    & a{
+        text-decoration: none;
+    }
+}
+.left-footer{
+    float: left;
+}
+.right-footer{
+    float: right;
+}
