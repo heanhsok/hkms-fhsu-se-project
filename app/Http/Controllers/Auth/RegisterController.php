@@ -85,6 +85,7 @@ class RegisterController extends Controller
                 'last_name' => $data['lastname'],
                 'isStudent' => 1,
                 'gender' => $data['gender'],
+                'profile_picture' => 'default.png',
                 'phone_number' => $data['phone_number'],
     
             ]);
@@ -114,6 +115,7 @@ class RegisterController extends Controller
                 'last_name' => $data['lastname'],
                 'isStudent' => 0,
                 'gender' => $data['gender'],
+                'profile_picture' => 'default.png',
                 'phone_number' => $data['phone_number']
     
             ]);
@@ -126,10 +128,7 @@ class RegisterController extends Controller
             ]);
 
         }
-        
 
-
-       
         return $user;
     }
 }

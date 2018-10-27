@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">User</div>
+                <div class="card-header">Account</div>
                     <ul>
                         <li>Username: {{$user->name}}</li>
                         <li>Email: {{$user->email}}</li>
@@ -13,9 +13,10 @@
             </div>
         </div>
         <div class="col-md-12">
-            <img src="{{asset('assets/picture/'.$user_profile->profile_picture)}}" alt="" height="100px">
+            <img src="{{asset('upload/picture/'.$user_profile->profile_picture)}}" alt="" height="100px">
             <div class="card">
-                <div class="card-header">User</div>
+                <a href="{{route('profile.edit', ['id' => $user->id ] )}}">Edit</a>
+                <div class="card-header">Personal</div>
                     <ul>
                         <li>First Name: {{$user_profile->first_name}}</li>
                         <li>Last Name:{{$user_profile->last_name}}</li>
@@ -27,7 +28,7 @@
 
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">User</div>
+                <div class="card-header">Contact</div>
                     <ul>
                         <li>Phone Number: {{$user_profile->phone_number}}</li>
                         <li>Street Number: {{$user_profile->street_number}}</li>
@@ -43,6 +44,7 @@
         <h2>Work Expriences</h2>
         <div class="col-md-12">
             <div class="card">
+                <a href="{{route('work.index')}}">View More</a>
                 <div class="card-header">Work Experience</div>
                 @foreach ($user_work_experiences as $user_work_experience)
                     <b>{{$user_work_experience->position}}</b>
@@ -61,6 +63,7 @@
         <h2>Education</h2>
         <div class="col-md-12">
             <div class="card">
+                <a href="{{route('education.index')}}">View More</a>
                 <div class="card-header">Education</div>
                 @foreach ($user_educations as $user_education)
                     <b>{{$user_education->major}}</b>
@@ -80,6 +83,7 @@
         <h2>Volunteer</h2>
         <div class="col-md-12">
             <div class="card">
+                <a href="{{route('volunteer.index')}}">View More</a>
                 <div class="card-header">Volunteer</div>
                 @foreach ($user_volunteer_experiences as $user_volunteer_experience)
                     <b>{{$user_volunteer_experience->role}}</b>

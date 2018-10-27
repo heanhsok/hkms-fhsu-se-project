@@ -73,6 +73,10 @@ class UserProfileController extends Controller
     public function edit($id)
     {
         //
+        return view('user.profile.edit')->with([
+            'user' => Auth::user(),
+            'user_profile' => Auth::user()->user_profile()->first()
+        ] );
     }
 
     /**
@@ -85,6 +89,34 @@ class UserProfileController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // dd($request->first_name);
+        $user_profile = \App\UserProfile::where('user_id',$id)->first();
+
+        
+        if ($request->hasFile('profile_picture')) {
+            $profile_picture = $request->profile_picture;
+            $profile_picture_name = time().$profile_picture->getClientOriginalName();
+            $profile_picture->move('upload/picture/', $profile_picture_name);
+
+            $user_profile->profile_picture = $profile_picture_name;
+            $user_profile->save();
+        }
+
+        $user_profile->first_name = $request->first_name;
+        $user_profile->last_name = $request->last_name;
+        $user_profile->gender = $request->gender;
+        $user_profile->biography = $request->biography;
+        $user_profile->phone_number = $request->phone_number;
+        $user_profile->street_number = $request->street_number;
+        $user_profile->street_name = $request->street_name;
+        $user_profile->commune = $request->commune;
+        $user_profile->district = $request->district;
+        $user_profile->city = $request->city;
+        $user_profile->country = $request->country;
+
+        $user_profile->save();
+
+        return redirect()->route('profile.index');
     }
 
     /**
@@ -97,4 +129,5 @@ class UserProfileController extends Controller
     {
         //
     }
+
 }

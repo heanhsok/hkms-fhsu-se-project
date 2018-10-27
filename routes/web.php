@@ -25,8 +25,16 @@ Route::get('/about', function() {
 
 Route::group(['middleware'=>['auth']], function(){
     
-
+    //'prefix'=>'profile'
     Route::resource('profile', 'UserProfileController');
+
+    Route::resource('work', 'UserWorkExpsController');
+
+    Route::resource('education', 'UserEducationsController');
+
+    Route::resource('volunteer', 'UserVolunteerExpsController');
+
+    // Route::resource('/education', 'UserProfileController');
     
 });
 

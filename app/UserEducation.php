@@ -16,7 +16,7 @@ class UserEducation extends Model
         'grade',
         'desc',
         'start_date',
-        'start_date'
+        'end_date'
     ];
 
     public function user() {
