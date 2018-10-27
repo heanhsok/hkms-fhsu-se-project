@@ -20,7 +20,7 @@ class CreateOpportunityPagePostsTable extends Migration
             $table->string('title');
             $table->string('institution');
             $table->string('category');
-            $table->string('picture');
+            $table->string('picture')->default('default.png');
             $table->text('description');
             $table->text('requirement');
             $table->text('contact');

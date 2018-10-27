@@ -23,7 +23,7 @@ class OpportunityPagePost extends Model
         'status'
     ];
 
-    public function opportunity_page() {
-        return $this->belongsTo('App\OpportunityPage');
+    public function page() {
+        return $this->belongsTo('App\OpportunityPage', 'opportunity_page_id');
     }
 }
