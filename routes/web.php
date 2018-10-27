@@ -19,13 +19,26 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', function() {
+    return 'about';
+});
 
 Route::group(['middleware'=>['auth']], function(){
     
+    //'prefix'=>'profile'
+    Route::resource('profile', 'UserProfileController');
 
-    Route::get('/profile', function(){
-        return view('user.profile');
-    })->name('user.profile');
+    Route::resource('work', 'UserWorkExpsController');
+
+    Route::resource('education', 'UserEducationsController');
+
+    Route::resource('volunteer', 'UserVolunteerExpsController');
+
+    Route::resource('opportunity', 'OpportunityPageController');
+    
+    Route::resource('opportunity.post', 'OpportunityPagePostController');
+
+    // Route::resource('/education', 'UserProfileController');
     
 });
 
@@ -35,6 +48,6 @@ Route::group(['prefix' => 'admin','middleware' => ['role:admin']],function(){
     })->name('admin.index');
 });
 
-Route::get('/opportunity', function() {
-    return view('user.opportunity.index');
-})->name('opportunity.index');
+// Route::get('/opportunity', function() {
+//     return view('user.opportunity.index');
+// })->name('opportunity.index');

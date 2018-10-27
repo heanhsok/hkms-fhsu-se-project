@@ -43,7 +43,7 @@ class User extends Authenticatable
     }
 
     public function user_volunteer_experience() {
-        return $this->hasMany('App\UserVolunteerExperience');
+        return $this->hasMany('App\UserVolunteerExp');
     }
     
     public function questions() 

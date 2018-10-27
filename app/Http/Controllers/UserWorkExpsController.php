@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\UserWorkExps;
+use \App\UserWorkExp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserWorkExpsController extends Controller
 {
@@ -14,7 +15,10 @@ class UserWorkExpsController extends Controller
      */
     public function index()
     {
-        //
+        return view('user.work_experience.index')->with([
+            'user_work_experiences' => Auth::user()->user_work_experience()->get()
+        ]);
+        // dd(Auth::user()->user_work_experience());
     }
 
     /**
@@ -36,50 +40,63 @@ class UserWorkExpsController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request);
+        
+        UserWorkExp::create($request->all());
+        return redirect()->route('work.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\UserWorkExps  $userWorkExps
+     * @param  \App\UserWorkExp  $UserWorkExp
      * @return \Illuminate\Http\Response
      */
-    public function show(UserWorkExps $userWorkExps)
+    public function show(UserWorkExp $UserWorkExp)
     {
         //
+        
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\UserWorkExps  $userWorkExps
+     * @param  \App\UserWorkExp  $UserWorkExp
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserWorkExps $userWorkExps)
+    public function edit($id)
     {
         //
+        // dd(UserWorkExp::where('id',$id)->first()->specialty);
+        return view('user.work_experience.edit')->with([
+            'work_experience' => UserWorkExp::where('id',$id)->first()
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UserWorkExps  $userWorkExps
+     * @param  \App\UserWorkExp  $UserWorkExp
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserWorkExps $userWorkExps)
+    public function update(Request $request, $id)
     {
-        //
+        
+        UserWorkExp::find($id)->fill($request->all())->save();
+        return redirect()->route('work.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UserWorkExps  $userWorkExps
+     * @param  \App\UserWorkExp  $UserWorkExp
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserWorkExps $userWorkExps)
+    public function destroy($id)
     {
-        //
+        UserWorkExp::find($id)->delete();
+        return redirect()->route('work.index');
     }
 }

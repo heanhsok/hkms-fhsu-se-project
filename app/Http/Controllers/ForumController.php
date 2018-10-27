@@ -18,7 +18,30 @@ class ForumController extends Controller
     {
     	$questions = Question::all();
 
-    	return view('forum.index',compact('questions'));
+        $questionArr         = [];
+        $questionUpvoteArr   = [];
+        $questionDownvoteArr = [];
+        $questionAnswerArr   = [];
+        $timeArr             = [];
+
+        foreach( $questions as $question ) {
+
+            $questionUpvotes = QuestionVote::where('question_id',$question->id)
+                                                ->where('vote',1)->get();
+            $questionDownvotes = QuestionVote::where('question_id',$question->id)
+                                                ->where('vote',0)->get();
+            $questionAnswers = Answer::where('question_id',$question->id)->get();
+            $time = $question->created_at->diffForHumans();
+
+            $questionArr[]         = $question;
+            $questionUpvoteArr[]   = $questionUpvotes;
+            $questionDownvoteArr[] = $questionDownvotes;
+            $questionAnswerArr[]   = $questionAnswers;
+            $timeArr[]             = $time;
+        
+        }
+
+    	return view('forum.forum-home',compact('questionArr','questionUpvoteArr','questionDownvoteArr','questionAnswerArr','timeArr'));
     }
 
     //display forum question by id
@@ -102,16 +125,27 @@ class ForumController extends Controller
     public function storeQuestion(Request $request)
     { 
         $this->validate($request, [
-            'question' => 'required'
+            'header' => 'required',
+            'description' => 'required'
         ]);
 
-        $questions = Question::all();
-        Question::create([
-           'question' => $request['question'],
+        if(Auth::user()) {
+            $questions = Question::all();
+           
+            Question::create([
+           'header' => $request['header'],
+           'description' => $request['description'],
            'user_id' => Auth::user()->id
         ]);
        
         return redirect()->route('forum.index',compact('questions'));
+
+        } else {
+
+            return redirect()->route('login');            
+        }
+
+      
     }
 
 

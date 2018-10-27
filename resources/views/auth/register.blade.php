@@ -28,7 +28,7 @@
                                     <div class="row register-form">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="First Name *" value="" name='firstname' id='firstname'/>
+                                                <input type="text" class="form-control" placeholder="First Name *" value="" name='firstname' id='firstname_std'/>
                                                 @if ($errors->has('name'))
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $errors->first('name') }}</strong>
@@ -36,12 +36,12 @@
                                                 @endif
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Last Name *" value="" name='last_name' />
+                                                <input type="text" class="form-control" placeholder="Last Name *" value="" name='lastname' id='lastname_std' />
                                             </div>
                                             <div class="form-group">
-                                                <select class="form-control" name='major'>
+                                                <select class="form-control" name='major' id='major_std'>
                                                     <option class="hidden"  selected disabled>Please select your major</option>
-                                                    <option value="IT Management">IT Management</option>
+                                                    <option value="IT Management" selected>IT Management</option>
                                                     <option value="Computer Science">Computer Science</option>
                                                     <option value="Business Administration">Business Administration</option>
                                                     <option value="Global Affairs">Global Affairs</option>
@@ -49,18 +49,18 @@
                                                 {{-- <medium id="passwordHelpInline">Cannot find your major? <a href="#">Add Now!</a></medium> --}}
                                             </div>
                                             <div class="form-group">
-                                                <select class="form-control" name='degree'>
+                                                <select class="form-control" name='degree' id='degree_std'>
                                                     <option class="hidden"  selected disabled>Please select your degree</option>
-                                                    <option value="Bachelor Degree">Bachelor Degree</option>
+                                                    <option value="Bachelor Degree" selected>Bachelor Degree</option>
                                                     <option value="Master Degree">Master Degree</option>
                                                     <option value="Phd">Phd</option>
                                                 </select>
                                                     {{-- <medium id="passwordHelpInline">Cannot find your major? <a href="#">Add Now!</a></medium> --}}
                                             </div>
                                             <div class="form-group">
-                                                <select class="form-control" name='university'>
+                                                <select class="form-control" name='university' id='university_std'>
                                                     <option class="hidden"  selected disabled>Please select your university</option>
-                                                    <option value="American Univeristy of Phnom Penh">American Univeristy of Phnom Penh</option>
+                                                    <option value="American Univeristy of Phnom Penh" selected>American Univeristy of Phnom Penh</option>
                                                     <option value="Fort Hays State University">Fort Hays State University</option>
                                                     <option value="Royal University of Phnom Penh">Royal University of Phnom Penh</option>
                                                     <option value="CamEd">CamEd</option>
@@ -82,19 +82,19 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Your Username" value="" name='name' id='name' />
+                                                <input type="text" class="form-control" placeholder="Your Username" value="" name='name' id='name_std' />
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" class="form-control" placeholder="Your Email *" value="" name='email' id='email' />
+                                                <input type="email" class="form-control" placeholder="Your Email *" value="" name='email' id='email_std' />
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" minlength="10" maxlength="10" name="phone_number" class="form-control" placeholder="Your Phone (Optional)" value="" />
+                                                <input type="text" minlength="10" name="phone_number" class="form-control" placeholder="Your Phone (Optional)" id='phone_number_std' />
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control" name='password' id='password' placeholder="Password *" value="" />
+                                                <input type="password" class="form-control" name='password' id='password_std' placeholder="Password *" value="" />
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control"  placeholder="Confirm Password *" value=""  name="password_confirmation" />
+                                                <input type="password" class="form-control"  placeholder="Confirm Password *" value=""  name="password_confirmation" id='password_confirmation_std' />
                                             </div>
                                             
                                             <div class="checkbox mb-3">
@@ -103,7 +103,7 @@
                                                 </label>
                                             </div>
                                             <div class='form-group'>
-                                                <input type="submit" class="btnRegister"  value="Register"/>
+                                                <input type="submit" class="btnRegister"  value="Register" id='register_std'/>
                                             </div>
                                             
                                         </div>
@@ -176,7 +176,7 @@
                                                 <input type="email" class="form-control" placeholder="Your Email *" value="" name='email' />
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" minlength="10" maxlength="10" class="form-control" placeholder="Your Phone *" value="" name="phone_number" />
+                                                <input type="text" minlength="10" class="form-control" placeholder="Your Phone *" value="" name="phone_number" />
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" class="form-control" placeholder="Password *" value="" name="password"/>
@@ -194,7 +194,7 @@
                                                 <input type="checkbox" value="agree"> By signing up you indicate that you have read and agree to nEdCom's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
                                                 </label>
                                             </div>
-                                            <input type="submit" class="btnRegister"  value="Register"/>
+                                            {{-- <input type="submit" class="btnRegister"  value="Register"/> --}}
                                         </div>
                                     </div>
                                 </form>
