@@ -43,7 +43,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected function redirectTo() 
+    protected function redirectTo()  
     {
         if(Auth::check()){
             $user = Auth::user();
