@@ -12,10 +12,10 @@
                 @include('includes.opportunity-post')
                 @include('includes.opportunity-post')
                 @include('includes.opportunity-post')
-                {{-- @include('includes.opportunity-post')
                 @include('includes.opportunity-post')
                 @include('includes.opportunity-post')
-                @include('includes.opportunity-post') --}}
+                @include('includes.opportunity-post')
+                @include('includes.opportunity-post')
         </div>
     </div>
     <!-- End Section -->
