@@ -8,6 +8,6 @@ class Tag extends Model
 {
     //
      protected $fillable = [
-        'tag'
+        'description','status','user_id'
     ];
 }
