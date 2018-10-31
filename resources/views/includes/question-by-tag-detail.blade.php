@@ -5,7 +5,7 @@
                         <h4><a href="{{route('forum.showQuestion',[$question->question->id])}}">{{ $question->question->header }}</a></h4>
                     </div>
                     <div class="row q-account">
-                        <img class="q-account-img" src="https://lumiere-a.akamaihd.net/v1/images/character_princess_cinderella_855a0a75.jpeg" alt="">
+                        <img class="q-account-img" src="{{ asset('upload/picture/'.'default.png')}}" alt="">
                         <div class="acc-brief">
                             <p class="authorName">{{ $userArr[$index]->name }}</h3>
                             <p class="aboutAuthor">Computer Science & IT Management</h5>

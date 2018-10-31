@@ -1,8 +1,8 @@
     <div class="container-fluid">
             <div class="col-sm-12 q-create">
                 <div class="profile-post">
-                    <img alt="profile picture" src="https://lumiere-a.akamaihd.net/v1/images/character_princess_cinderella_855a0a75.jpeg">
-                    <p class="profileName">{{ Auth::user() != '' ? Auth::user()->name : 'Guest' }}</h3>
+                    <img alt="profile picture" src="{{ asset('upload/picture/'.'default.png')}}">
+                    <p class="profileName">{{ Auth::user() != '' ? Auth::user()->name : 'Guest' }}</p>
                 </div>
                 <form action="{{ route('forum.storeQuestion') }}" method="post">
                     <textarea name="header" rows="1" placeholder="What's on your mind?" required></textarea>

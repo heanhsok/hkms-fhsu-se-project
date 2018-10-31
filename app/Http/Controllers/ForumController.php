@@ -19,7 +19,7 @@ class ForumController extends Controller
     //
     public function index()
     {
-    	$questions = Question::all();
+    	$questions = Question::orderBy('id','desc')->get();
         $tags      = Tag::all();
 
         $questionArr         = [];
@@ -66,7 +66,6 @@ class ForumController extends Controller
         $questionAnswers = Answer::where('question_id',$question->id)->get();
         $time = $question->created_at->diffForHumans();
         $questionTags    = QuestionTag::where('question_id',$question->id)->get();
-
 
         return view('forum.forum-question-detail',compact('question','answers','questionUpvotes','questionDownvotes','questionAnswers','time','questionTags','tags'));
     }
@@ -199,7 +198,8 @@ class ForumController extends Controller
 
     public function showPostByTags($tag_id) 
     {
-        $questionByTags = QuestionTag::where('question_tags.tag_id','=',$tag_id)->get();
+        $questionByTags = QuestionTag::where('question_tags.tag_id','=',$tag_id)
+                                    ->orderBy('id','desc')->get();
         $tags      = Tag::all();
 
         $questionArr         = [];

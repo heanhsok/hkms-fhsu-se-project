@@ -2,8 +2,13 @@
     <header><h4>Submit Your Answer</h4></header>
      <div class="col-sm-12 q-create">
      	<div class="profile-post">
-            <img alt="profile picture" src="https://lumiere-a.akamaihd.net/v1/images/character_princess_cinderella_855a0a75.jpeg">
+            @if(Auth::user() != '')
+            <img alt="profile picture" src="{{ asset('upload/picture/'.'default.png')}}">
             <p class="profileName">{{ Auth::user()->name }}</p>
+            @else
+            <img alt="profile picture" src="{{ asset('upload/picture/'.'default.png')}}>
+            <p class="profileName">Guest</p>
+            @endif
         </div>
         <form action="{{ route('forum.storeAnswer',[$question->id]) }}" method="post">
             <div class="form-group">
