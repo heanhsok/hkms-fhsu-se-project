@@ -17,7 +17,7 @@
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Student</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Professor/Hirer</a>
+                                <a class="nav-link" id="register_premeiem_tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Professor/Hirer</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
@@ -41,7 +41,7 @@
                                             <div class="form-group">
                                                 <select class="form-control" name='major' id='major_std'>
                                                     <option class="hidden"  selected disabled>Please select your major</option>
-                                                    <option value="IT Management" selected>IT Management</option>
+                                                    <option value="IT Management" >IT Management</option>
                                                     <option value="Computer Science">Computer Science</option>
                                                     <option value="Business Administration">Business Administration</option>
                                                     <option value="Global Affairs">Global Affairs</option>
@@ -51,7 +51,7 @@
                                             <div class="form-group">
                                                 <select class="form-control" name='degree' id='degree_std'>
                                                     <option class="hidden"  selected disabled>Please select your degree</option>
-                                                    <option value="Bachelor Degree" selected>Bachelor Degree</option>
+                                                    <option value="Bachelor Degree" >Bachelor Degree</option>
                                                     <option value="Master Degree">Master Degree</option>
                                                     <option value="Phd">Phd</option>
                                                 </select>
@@ -60,7 +60,7 @@
                                             <div class="form-group">
                                                 <select class="form-control" name='university' id='university_std'>
                                                     <option class="hidden"  selected disabled>Please select your university</option>
-                                                    <option value="American Univeristy of Phnom Penh" selected>American Univeristy of Phnom Penh</option>
+                                                    <option value="American Univeristy of Phnom Penh">American Univeristy of Phnom Penh</option>
                                                     <option value="Fort Hays State University">Fort Hays State University</option>
                                                     <option value="Royal University of Phnom Penh">Royal University of Phnom Penh</option>
                                                     <option value="CamEd">CamEd</option>
@@ -117,7 +117,7 @@
                                     <div class="row register-form">
                                         <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="First Name *" value="" name='firstname' id='firstname'/>
+                                                    <input type="text" class="form-control" placeholder="First Name *" value="" name='firstname' id='firstname_prm'/>
                                                     @if ($errors->has('name'))
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $errors->first('name') }}</strong>
@@ -125,18 +125,18 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Last Name *" value="" name='last_name' />
+                                                    <input type="text" class="form-control" placeholder="Last Name *" value="" name='lastname' id='lastname_prm' />
                                                 </div>
                                                 <div class="form-group">
-                                                    <select class="form-control" name='position'>
+                                                    <select class="form-control" name='position' id='position_prm'>
                                                         <option class="hidden"  selected disabled>Please select your position</option>
-                                                        <option value="IT Management">Professor</option>
-                                                        <option value="Computer Science">Recruiter</option>
+                                                        <option value="Professor">Professor</option>
+                                                        <option value="Recruiter">Recruiter</option>
                                                     </select>
                                                     {{-- <medium id="passwordHelpInline">Cannot find your major? <a href="#">Add Now!</a></medium> --}}
                                                 </div>
                                                 <div class="form-group">
-                                                    <select class="form-control" name='specialty'>
+                                                    <select class="form-control" name='specialty' id="specialty_prm">
                                                         <option class="hidden"  selected disabled>Please select your Specialty</option>
                                                         <option value="IT Management">IT Management</option>
                                                         <option value="Computer Science">Computer Science</option>
@@ -146,7 +146,7 @@
                                                         {{-- <medium id="passwordHelpInline">Cannot find your major? <a href="#">Add Now!</a></medium> --}}
                                                 </div>
                                                 <div class="form-group">
-                                                    <select class="form-control" name='workplace'>
+                                                    <select class="form-control" name='workplace' id='workplace_prm'>
                                                         <option class="hidden"  selected disabled>Please select your workplace</option>
                                                         <option value="American Univeristy of Phnom Penh">American Univeristy of Phnom Penh</option>
                                                         <option value="Fort Hays State University">Fort Hays State University</option>
@@ -158,7 +158,7 @@
                                                 <div class="form-group">
                                                     <div class="maxl">
                                                         <label class="radio inline">
-                                                            <input type="radio" name="gender" value="male"checked>
+                                                            <input type="radio" name="gender" value="male" checked>
                                                             <span> Male </span>
                                                         </label>
                                                         <label class="radio inline">
@@ -170,19 +170,19 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Your Username *" value="" name='name' />
+                                                <input type="text" class="form-control" placeholder="Your Username *" value="" name='name' id='name_prm' />
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" class="form-control" placeholder="Your Email *" value="" name='email' />
+                                                <input type="email" class="form-control" placeholder="Your Email *" value="" name='email' id='email_prm' />
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" minlength="10" class="form-control" placeholder="Your Phone *" value="" name="phone_number" />
+                                                <input type="text" minlength="10" class="form-control" placeholder="Your Phone *" value="" name="phone_number" id='phone_number_prm' />
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control" placeholder="Password *" value="" name="password"/>
+                                                <input type="password" class="form-control" placeholder="Password *" value="" name="password" id="password_prm" />
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control"  placeholder="Confirm Password *" value="" name="password_confirmation"/>
+                                                <input type="password" class="form-control"  placeholder="Confirm Password *" value="" name="password_confirmation" id="password_confirmation_prm" />
                                             </div>
                                             {{-- <div class="form-group">
                                                 <label for="exampleInputFile">Choose a file to confirm your identity</label>
@@ -194,7 +194,7 @@
                                                 <input type="checkbox" value="agree"> By signing up you indicate that you have read and agree to nEdCom's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
                                                 </label>
                                             </div>
-                                            {{-- <input type="submit" class="btnRegister"  value="Register"/> --}}
+                                            <input type="submit" class="btnRegister"  value="Register" id='register_prm'/> 
                                         </div>
                                     </div>
                                 </form>

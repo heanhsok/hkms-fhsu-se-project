@@ -24,7 +24,7 @@
                             <input type="file" name="picture_file" class="form-control">
                             
                             <label for="">Title</label>
-                            <input type="text" name="title" class="form-control" value="">
+                            <input type="text" name="title" id='title' class="form-control" value="">
                             
                             <label for="">Select Type of Opportunity:</label>
                             <select name="opportunity_page_id" id="opportunity_page_id" class="form-control">
@@ -35,32 +35,32 @@
 
                             
                             <label for="">institution</label>
-                            <input type="text" name="institution" class="form-control" value="">
+                            <input type="text" name="institution" id="institution" class="form-control" value="">
                             
                             <label for="">category</label>
-                            <input type="text" name="category" class="form-control" value="">
+                            <input type="text" name="category" id="category" class="form-control" value="">
 
                             <label for="">Description</label>
-                            <textarea name="description" id="desc" cols="5" rows="5" class="form-control"></textarea>
+                            <textarea name="description" id="description" cols="5" rows="5" class="form-control"></textarea>
             
                             <label for="">Requirement</label>
-                            <textarea name="requirement" id="desc" cols="5" rows="5" class="form-control"></textarea>
+                            <textarea name="requirement" id="requirement" cols="5" rows="5" class="form-control"></textarea>
             
                             <label for="">contact</label>
-                            <input type="text" name="contact" class="form-control" value="">
+                            <input type="text" name="contact" id="contact" class="form-control" value="">
                             
                             <label for="">location</label>
-                            <input type="text" name="location" class="form-control" value="">
+                            <input type="text" name="location" id="location" class="form-control" value="">
                             
                             <label for="">Open Date:</label>
-                            <input type="text" name="start_date" class="form-control" value="">
+                            <input type="text" name="start_date" id="start_date" class="form-control" value="">
                             
                             <label for="">Close Date:</label>
-                            <input type="text" name="end_date" class="form-control" value="">
+                            <input type="text" name="end_date" id="end_date" class="form-control" value="">
                      
                             <div class="form-group">
                                 <div class="text-center">
-                                    <button class="btn btn-success" type="submit">Create</button>
+                                    <button class="btn btn-success" type="submit" id="create">Create</button>
                                 </div>
                             </div>
                     </form>

@@ -11,6 +11,8 @@
                         {{$post->title }}  
                     </h3>
 
+                    @role(('premiem'))
+
                     <h5><a href="{{route('opportunity.post.edit',['opportunity'=>$post->page()->first()->type, 'post'=>$post->id])}}">Edit</a></h5>
                     
                     <form action="{{ route('opportunity.post.destroy', ['opportunity'=>$post->page()->first()->type, 'post'=>$post->id])}}" method="post">
@@ -18,6 +20,8 @@
                         @method('DELETE')
                         <button type="submit">Delete</button>
                     </form>
+
+                    @endrole
                     
                     <a href=""></a>
                     

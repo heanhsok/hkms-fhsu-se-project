@@ -5,7 +5,9 @@
         <div class="row">
                 @include('includes.left-sidebar-op')
             <div class="col-10">
+                @role(('premiem'))
                 <h3><a href="{{route('opportunity.post.create',['type'=>'event'])}}">Create New Opportunity</a></h3>
+                @endrole
                 <h1>All Type of Opportunities:</h1>
                 @foreach($pages as $page)
                     <h3>
