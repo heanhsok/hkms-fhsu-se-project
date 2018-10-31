@@ -6,7 +6,7 @@
                 </div>
                 <form action="{{ route('forum.storeQuestion') }}" method="post">
                     <textarea name="header" rows="1" placeholder="What's on your mind?" required></textarea>
-                    <textarea name="description" rows="3" placeholder="Tell me more..."></textarea></br>
+                    <textarea name="description" rows="3" placeholder="Tell me more..." required></textarea></br>
                     @foreach($tags as $index => $tag)
                     <input type="checkbox" name="tags[]" style="margin:0px;" value="{{ $tag->id }}">
                     {{$tag->description}}
