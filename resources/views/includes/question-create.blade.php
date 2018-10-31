@@ -1,13 +1,16 @@
     <div class="container-fluid">
             <div class="col-sm-12 q-create">
                 <div class="profile-post">
-                    <img alt="profile picture" src="https://lumiere-a.akamaihd.net/v1/images/character_princess_cinderella_855a0a75.jpeg">
-                    <p class="profileName">Sokchamroeun Riem</h3>
+                    <img alt="profile picture" src="{{ asset('upload/picture/'.'default.png')}}">
+                    <p class="profileName">{{ Auth::user() != '' ? Auth::user()->name : 'Guest' }}</p>
                 </div>
                 <form action="{{ route('forum.storeQuestion') }}" method="post">
-                    <textarea name="header" rows="1" placeholder="What's on your mind?"></textarea>
-                    <textarea name="description" rows="3" required></textarea>
-                    <textarea class="post-topics" placeholder="Choose Topics"></textarea>
+                    <textarea name="header" rows="1" placeholder="What's on your mind?" required></textarea>
+                    <textarea name="description" rows="3" placeholder="Tell me more..."></textarea></br>
+                    @foreach($tags as $index => $tag)
+                    <input type="checkbox" name="tags[]" style="margin:0px;" value="{{ $tag->id }}">
+                    {{$tag->description}}
+                    @endforeach
                     <div class="container-fluid q-create-footer">
                             <div class="left-create-footer">
                             </div>
