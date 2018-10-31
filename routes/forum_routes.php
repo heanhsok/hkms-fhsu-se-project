@@ -53,6 +53,11 @@ Route::group(['prefix' => 'forum'],function(){
         'uses' => 'ForumCotroller@questionVote'
     ]);
 
+    Route::get('/tag/{id?}', [
+        'as' => 'forum.showPostByTags',
+        'uses' => 'ForumController@showPostByTags'
+    ]);
+
 });
 
 

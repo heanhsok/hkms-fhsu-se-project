@@ -10,6 +10,9 @@ use App\Answer;
 use App\Question;
 use App\QuestionVote;
 use App\Tag;
+use App\QuestionTag;
+use App\User;
+use Carbon\Carbon;
 
 class ForumController extends Controller
 {
@@ -17,12 +20,14 @@ class ForumController extends Controller
     public function index()
     {
     	$questions = Question::all();
+        $tags      = Tag::all();
 
         $questionArr         = [];
         $questionUpvoteArr   = [];
         $questionDownvoteArr = [];
         $questionAnswerArr   = [];
         $timeArr             = [];
+        $questionTagArr      = [];
 
         foreach( $questions as $question ) {
 
@@ -32,29 +37,38 @@ class ForumController extends Controller
                                                 ->where('vote',0)->get();
             $questionAnswers = Answer::where('question_id',$question->id)->get();
             $time = $question->created_at->diffForHumans();
+            $questionTags    = QuestionTag::where('question_id',$question->id)->get();
 
             $questionArr[]         = $question;
             $questionUpvoteArr[]   = $questionUpvotes;
             $questionDownvoteArr[] = $questionDownvotes;
             $questionAnswerArr[]   = $questionAnswers;
             $timeArr[]             = $time;
+            $questionTagArr[]      = $questionTags;
         
         }
 
-    	return view('forum.forum-home',compact('questionArr','questionUpvoteArr','questionDownvoteArr','questionAnswerArr','timeArr'));
+    	return view('forum.forum-home',compact('questionArr','questionUpvoteArr','questionDownvoteArr','questionAnswerArr','timeArr','tags','questionTagArr'));
     }
 
     //display forum question by id
     public function showQuestion($id)
     {
-
-        $question = Question::where('id', $id)
-                             ->first();
+        $tags = Tag::where('status',1)->get();
+        $question = Question::find($id);
         $answers = Answer::where('question_id', $id)
                              ->orderBy('created_at','desc')
                              ->get();
+        $questionUpvotes = QuestionVote::where('question_id',$question->id)
+                                                ->where('vote',1)->get();
+        $questionDownvotes = QuestionVote::where('question_id',$question->id)
+                                            ->where('vote',0)->get();
+        $questionAnswers = Answer::where('question_id',$question->id)->get();
+        $time = $question->created_at->diffForHumans();
+        $questionTags    = QuestionTag::where('question_id',$question->id)->get();
 
-        return view('forum.forum_question',compact('question','answers'));
+
+        return view('forum.forum-question-detail',compact('question','answers','questionUpvotes','questionDownvotes','questionAnswers','time','questionTags','tags'));
     }
 
     //store forum answer
@@ -126,18 +140,28 @@ class ForumController extends Controller
     { 
         $this->validate($request, [
             'header' => 'required',
-            'description' => 'required'
         ]);
 
         if(Auth::user()) {
-            $questions = Question::all();
+
+            $questionData;
+            
+            $questionData['header']       = $request['header'];
+            $questionData['description']  = $request['description'];
+            $questionData['user_id']      = Auth::user()->id;
+            $questionData['created_at']   = Carbon::now();
+            $questionData['updated_at']   = Carbon::now();
            
-            Question::create([
-           'header' => $request['header'],
-           'description' => $request['description'],
-           'user_id' => Auth::user()->id
-        ]);
-       
+            $questionCreate = Question::create($questionData);
+
+            foreach($request->tags as $index => $tag) {
+                $questionTagData['question_id'] = $questionCreate->id ;
+                $questionTagData['tag_id']      = $tag;
+                
+                QuestionTag::create($questionTagData);
+
+            }
+           
         return redirect()->route('forum.index',compact('questions'));
 
         } else {
@@ -171,6 +195,43 @@ class ForumController extends Controller
         $question->question = $request['question'];
         $question->update();
         return response()->json(['new_question' => $question->question], 200);
+    }
+
+    public function showPostByTags($tag_id) 
+    {
+        $questionByTags = QuestionTag::where('question_tags.tag_id','=',$tag_id)->get();
+        $tags      = Tag::all();
+
+        $questionArr         = [];
+        $questionUpvoteArr   = [];
+        $questionDownvoteArr = [];
+        $questionAnswerArr   = [];
+        $timeArr             = [];
+        $questionTagArr      = [];
+        $userArr             = [];
+
+        foreach( $questionByTags as $questionByTag ) {
+
+            $questionUpvotes = QuestionVote::where('question_id',$questionByTag->question->id)
+                                                ->where('vote',1)->get();
+            $questionDownvotes = QuestionVote::where('question_id',$questionByTag->question->id)
+                                                ->where('vote',0)->get();
+            $questionAnswers = Answer::where('question_id',$questionByTag->question->id)->get();
+            $time = $questionByTag->question->created_at->diffForHumans();
+            $questionTags    = QuestionTag::where('question_id',$questionByTag->question->id)->get();
+            $user            = User::where('id',$questionByTag->question->user->id)->first();
+
+            $questionArr[]         = $questionByTag;
+            $questionUpvoteArr[]   = $questionUpvotes;
+            $questionDownvoteArr[] = $questionDownvotes;
+            $questionAnswerArr[]   = $questionAnswers;
+            $timeArr[]             = $time;
+            $questionTagArr[]      = $questionTags;
+            $userArr[]             = $user;
+        
+        }
+
+        return view('forum.forum_post_by_tags',compact('questionArr','questionUpvoteArr','questionDownvoteArr','questionAnswerArr','timeArr','tags','questionTagArr','userArr'));
     }
    
 

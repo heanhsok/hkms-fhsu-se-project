@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Question;
 use App\QuestionVote;
 use App\Answer;
+use App\QuestionTag;
 
 class HomeController extends Controller
 {
@@ -33,6 +34,8 @@ class HomeController extends Controller
         $questionDownvoteArr = [];
         $questionAnswerArr   = [];
         $timeArr             = [];
+        $questionTagArr      = [];
+
 
         foreach( $questions as $question ) {
 
@@ -42,15 +45,17 @@ class HomeController extends Controller
                                                 ->where('vote',0)->get();
             $questionAnswers = Answer::where('question_id',$question->id)->get();
             $time = $question->created_at->diffForHumans();
+            $questionTags    = QuestionTag::where('question_id',$question->id)->get();
 
             $questionArr[]         = $question;
             $questionUpvoteArr[]   = $questionUpvotes;
             $questionDownvoteArr[] = $questionDownvotes;
             $questionAnswerArr[]   = $questionAnswers;
             $timeArr[]             = $time;
+            $questionTagArr[]      = $questionTags;
         }
 
-        return view('user.home',compact('questionArr','questionUpvoteArr','questionDownvoteArr','questionAnswerArr','timeArr'));
+        return view('user.home',compact('questionArr','questionUpvoteArr','questionDownvoteArr','questionAnswerArr','timeArr','questionTagArr'));
     }
 
     public function home(){
