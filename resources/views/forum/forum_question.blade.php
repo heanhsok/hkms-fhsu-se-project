@@ -1,4 +1,4 @@
-@extends('user.layouts.app')
+<!-- @extends('user.layouts.app')
 
 @section('content')
 <h3>{{$question->question}}</h3>
@@ -23,4 +23,4 @@
 </p>
 @endforeach
 
-@endsection
+@endsection -->

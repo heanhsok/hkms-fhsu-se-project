@@ -16,7 +16,7 @@
         <a href="#" class="reset-password">Forget password?</a>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit" id='login'>{{ __('Login') }}</button>
-        <p> Don't have an account? <a href="#" class="mt-5 mb-3 create-account"> Create Account </a></p>
+        <p> Don't have an account? <a href="{{ route('register') }}" class="mt-5 mb-3 create-account"> Create Account </a></p>
         <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
     </form>
 </div>
