@@ -27,10 +27,14 @@
 			<li class="nav-item">
   			<a class="nav-link" href="http://nedcom.edu"><i class="fas fa-bell"></i></a>
   		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="{{ route('logout') }}"><i class="fas fa-user-alt"></i></a>
+		  @guest
+			<li class="nav-item">
+				<a class="nav-link" href="{{ route('login') }}">Log In</a>
 			</li>
-			
+			<li class="nav-item">
+				<a class="nav-link" href="{{ route('register') }}">Sign Up</a>
+			</li>
+			@endguest
 			@auth
 
 				<li class="nav-item">

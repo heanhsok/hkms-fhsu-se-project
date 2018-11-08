@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->text('header');
-            $table->text('description');
+            $table->text('description')->default(null);
             $table->timestamps();
         });
     }

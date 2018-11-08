@@ -13696,7 +13696,6 @@ module.exports = __webpack_require__(39);
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -13724,12 +13723,6 @@ __webpack_require__(38);
 
 var questionId = 0;
 var questionBodyElement = null;
-
-$('.vote').on('click', function (event) {
-  event.preventDefault();
-  var isUpVote = event.target.previousElementSibling == null ? true : false;
-  console.log(isUpVote);
-});
 
 /***/ }),
 /* 12 */

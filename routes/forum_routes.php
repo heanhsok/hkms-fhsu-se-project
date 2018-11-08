@@ -48,6 +48,15 @@ Route::group(['prefix' => 'forum'],function(){
     	'uses' => 'ForumController@storeQuestion'
     ]);
 
+    Route::post('vote',[
+        'as' => 'forum.questionVote',
+        'uses' => 'ForumCotroller@questionVote'
+    ]);
+
+    Route::get('/tag/{id?}', [
+        'as' => 'forum.showPostByTags',
+        'uses' => 'ForumController@showPostByTags'
+    ]);
 
 });
 

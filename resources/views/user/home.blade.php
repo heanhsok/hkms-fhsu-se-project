@@ -1,24 +1,10 @@
 @extends('user.layouts.app')
 @section('content')
     @include('includes.main-nav')
-    
+
     @guest
         @include('includes.login-reminder')
     @endguest
-    <!-- New Opportunities -->
-    <div class="container opportunity-section">
-        <h4 class="op-heading">New Opportunities</h4>
-        <div class="scrolling-wrapper-flexbox">
-                @include('includes.opportunity-post')
-                @include('includes.opportunity-post')
-                @include('includes.opportunity-post')
-                @include('includes.opportunity-post')
-                @include('includes.opportunity-post')
-                @include('includes.opportunity-post')
-                @include('includes.opportunity-post')
-        </div>
-    </div>
-    <!-- End Section -->
     <!-- Forum Section -->
     <div class="container opportunity-section">
         <h4 class="op-heading">New Questions</h4>
