@@ -26,3 +26,5 @@ class LoginTest extends DuskTestCase
         });
     }
 }
+
+//php artisan dusk tests/Browser/LoginTest.php
