@@ -2,11 +2,6 @@
 @section('content')
     @include('includes.main-nav')
     <div class="container forum-home">
-        <div class="row">
-                @include('includes.left-sidebar-op')
-            <div class="col-10">
-
-
                     <h3>
                         {{$post->title }}
                     </h3>
@@ -37,10 +32,6 @@
                         <li>Open Date: {{$post->start_date}}</li>
                         <li>Close Date: {{$post->end_date}}</li>
                     </ul>
-
-
-            </div>
-        </div>
     </div>
 
 @stop

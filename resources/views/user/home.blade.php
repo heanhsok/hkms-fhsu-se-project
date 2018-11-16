@@ -2,6 +2,7 @@
 @section('content')
     @include('includes.main-nav')
 
+    <!--  Only appear for those who do not login to the system-->
     @guest
         @include('includes.login-reminder')
     @endguest
