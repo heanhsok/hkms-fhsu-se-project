@@ -2,19 +2,14 @@
 @section('content')
     @include('includes.main-nav')
     <div class="container forum-home">
-        <div class="row">
-                @include('includes.left-sidebar-op')
-            <div class="col-10">
-
-
                     <h3>
-                        {{$post->title }}  
+                        {{$post->title }}
                     </h3>
 
                     @role(('premiem'))
 
                     <h5><a href="{{route('opportunity.post.edit',['opportunity'=>$post->page()->first()->type, 'post'=>$post->id])}}">Edit</a></h5>
-                    
+
                     <form action="{{ route('opportunity.post.destroy', ['opportunity'=>$post->page()->first()->type, 'post'=>$post->id])}}" method="post">
                         @csrf
                         @method('DELETE')
@@ -22,9 +17,9 @@
                     </form>
 
                     @endrole
-                    
+
                     <a href=""></a>
-                    
+
                     <img src="{{asset('upload/picture/'.$post->picture)}}" alt="" width="300px">
                     <ul>
                         <li>Title: {{$post->title}}</a></li>
@@ -37,10 +32,6 @@
                         <li>Open Date: {{$post->start_date}}</li>
                         <li>Close Date: {{$post->end_date}}</li>
                     </ul>
-
-
-            </div>
-        </div>
     </div>
 
 @stop

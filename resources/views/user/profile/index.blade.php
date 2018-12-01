@@ -55,7 +55,7 @@
                         <li>description: {{$user_work_experience->desc}}</li>
                         <li>start_date: {{$user_work_experience->start_date}}</li>
                         <li>end_date: {{$user_work_experience->end_date}}</li>
-                    </ul>       
+                    </ul>
                 @endforeach
             </div>
         </div>
@@ -75,7 +75,7 @@
                         <li>desc: {{$user_education->desc}}</li>
                         <li>start_date: {{$user_education->start_date}}</li>
                         <li>start_date: {{$user_education->start_date}}</li>
-                    </ul>       
+                    </ul>
                 @endforeach
             </div>
         </div>
@@ -93,21 +93,11 @@
                         <li>desc: {{$user_volunteer_experience->desc}}</li>
                         <li>start_date: {{$user_volunteer_experience->start_date}}</li>
                         <li>end_date: {{$user_volunteer_experience->end_date}}</li>
-                    </ul>       
+                    </ul>
                 @endforeach
             </div>
         </div>
 
-
-        
-        
-        
-        
-        
-        
-        
-
-                
     </div>
 
 </div>

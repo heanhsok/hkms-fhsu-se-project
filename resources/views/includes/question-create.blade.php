@@ -1,4 +1,4 @@
-    <div class="container-fluid">
+<div class="container-fluid">
             <div class="col-sm-12 q-create">
                 <div class="profile-post">
                     <img alt="profile picture" src="{{ asset('upload/picture/'.'default.png')}}">
