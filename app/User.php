@@ -66,5 +66,8 @@ class User extends Authenticatable
         return $this->hasMany('App\AnswerVote');
     }
 
+    public function opportunity_page_posts(){
+        return $this->hasMany('App\OpportunityPagePost');
+    }
 
 }

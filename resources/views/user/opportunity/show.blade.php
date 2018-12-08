@@ -12,6 +12,7 @@
                             <li>Title: <a href="{{route('opportunity.post.show',['opportunity'=>$current_page->type, 'post'=>$post->id])}}">{{$post->title}}</a></li>
                             <li>institution: {{$post->institution}}</li>
                             <li>category: {{$post->category}}</li>
+                            <li>Posted By: {{$post->user->name}}</li>
                         </ul>
                     @endforeach
     </div>

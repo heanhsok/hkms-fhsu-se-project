@@ -26,4 +26,8 @@ class OpportunityPagePost extends Model
     public function page() {
         return $this->belongsTo('App\OpportunityPage', 'opportunity_page_id');
     }
+
+    public function user() {
+        return $this->belongsTo('App\User', 'user_id');
+    }
 }

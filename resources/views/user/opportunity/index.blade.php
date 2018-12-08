@@ -27,7 +27,7 @@
                                 <div class="card__info">
                                     <span class="card__category"> {{$post->category}} </span>
                                     <h4 class="card__title"><a href="{{route('opportunity.post.show',['opportunity'=>$page->type, 'post'=>$post->id])}}">{{$post->title}}</a></h4>
-                                    <span class="card__by">by <a href="#" class="card__author" title="author">Sokchamroeun Riem</a></span>
+                                <span class="card__by">by <a href="#" class="card__author" title="author">{{$post->user->name}}</a></span>
                                 </div>
                         </div>
                         @endforeach

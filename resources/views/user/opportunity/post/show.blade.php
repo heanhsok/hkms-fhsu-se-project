@@ -6,8 +6,10 @@
                         {{$post->title }}
                     </h3>
 
-                    @role(('premiem'))
+                    {{-- @role(('premiem')) --}}
 
+                    {{-- role_id = 3 is admin --}}
+                    @if (Auth::user()->id == $post->user_id or Auth::user()->id == 3) 
                     <h5><a href="{{route('opportunity.post.edit',['opportunity'=>$post->page()->first()->type, 'post'=>$post->id])}}">Edit</a></h5>
 
                     <form action="{{ route('opportunity.post.destroy', ['opportunity'=>$post->page()->first()->type, 'post'=>$post->id])}}" method="post">
@@ -16,13 +18,16 @@
                         <button type="submit">Delete</button>
                     </form>
 
-                    @endrole
+                    @endif
+
+                    {{-- @endrole --}}
 
                     <a href=""></a>
 
                     <img src="{{asset('upload/picture/'.$post->picture)}}" alt="" width="300px">
                     <ul>
                         <li>Title: {{$post->title}}</a></li>
+                        <li>Posted By: {{$post->user->name}}</li>
                         <li>institution: {{$post->institution}}</li>
                         <li>category: {{$post->category}}</li>
                         <li>description: {{$post->description}}</li>
