@@ -42,14 +42,21 @@ Route::group(['middleware'=>['auth']], function(){
 
 });
 
-Route::group(['prefix' => 'admin','middleware' => ['role:admin']],function(){
+Route::group(['prefix' => 'admin','middleware' => ['role:admin'], 'as'=>'admin.'],function(){
+    
     Route::get('/', function() {
         return view('admin.index');
-    })->name('admin.index');
+    })->name('index');
 
     Route::resource('account', 'AdminAccountController');
+
+    Route::get('getaccounts', 'AdminAccountController@getAccounts')->name('account.getaccounts');
+
+    Route::get('setting', 'AdminAccountController@setting')->name('setting');
     
 });
+
+Route::get('hello', 'AdminAccountController@getAccounts');
 
 // Route::get('/opportunity', function() {
 //     return view('user.opportunity.index');

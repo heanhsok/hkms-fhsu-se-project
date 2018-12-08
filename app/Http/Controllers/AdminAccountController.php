@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\UserProfile;
+use Redirect;
+use DataTables;
 
 class AdminAccountController extends Controller
 {
@@ -47,7 +51,21 @@ class AdminAccountController extends Controller
     public function show($id)
     {
         //
-        return view('admin.account.show');
+
+        $user = User::where('id',$id)->first();
+
+        $user_profile = $user->user_profile()->first();
+        $user_work_experiences = $user->user_work_experience()->get();
+        $user_educations = $user->user_education()->get();
+        $user_volunteer_experiences = $user->user_volunteer_experience()->get();
+
+        return view('admin.account.show')->with([
+            'user' => $user,
+            'user_profile' => $user_profile,
+            'user_work_experiences' => $user_work_experiences,
+            'user_educations' => $user_educations,
+            'user_volunteer_experiences' => $user_volunteer_experiences
+        ] );
     }
 
     /**
@@ -82,5 +100,39 @@ class AdminAccountController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getAccounts() {
+
+        // return User::with('user_profile','roles')->get();
+
+        return datatables()->of(User::with('user_profile','roles')
+            ->get()->except([1,2,3]))
+            ->addColumn('action', function ($users) {
+                return '<a href="/admin/account/'.$users->id.'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> View</a>
+                   <a href="'. route('admin.account.destroy', $users->id) .'" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-stop"></i> Disable</a>   ';
+            })
+            ->addColumn('role', function($user){
+
+                if($user->roles[0]->id == 1) {
+                    return '<span class="label label-success">'.$user->roles[0]->name.'</span>   ';
+                }
+                else {
+                    return '<span class="label label-warning">'.$user->roles[0]->name.'</span>   ';
+                }
+
+            })->rawColumns(['role', 'action'])
+            ->make(true)
+            ;
+
+            //how to use database
+            //https://laravelcode.com/post/laravel-55-yajra-datatable-example
+            
+            //add columns with buttons inside
+            // https://stackoverflow.com/questions/46522834/add-delete-button-in-yajra-datatables-in-laravel-5-4
+    }
+
+    public function setting() {
+        return view('admin.setting');
     }
 }

@@ -12,122 +12,79 @@
     
     <div class="row">
       <div class="col-xs-12">
-        <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Account</h3>
 
-            <div class="box-tools">
-              <div class="input-group input-group-sm" style="width: 150px;">
-                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                <div class="input-group-btn">
-                  <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                </div>
+          <div class="box">
+              <div class="box-header">
+                {{-- <h3 class="box-title">Data Table With Full Features</h3> --}}
               </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <table id="user-account" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>User Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                      <th>ID</th>
+                      <th>User Name</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>
+                      <th>Role</th>
+                      <th>Action</th>
+                    </tr>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.box-body -->
             </div>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body table-responsive no-padding">
-            <table class="table table-hover">
-              <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Registered Date</th>
-                <th>Status</th>
-                <th>Role</th>
-              </tr>
-              <tr>
-                <td>183</td>
-                <td>johndoe</td>
-                <td>John</td>
-                <td>Does</td>
-                <td>johndoe@gmail.com</td>
-                <td>11-7-2014</td>
-                <td><span class="label label-success">Approved</span></td>
-                <td><span class="label label-primary">Standard</span></td>
-              </tr>
-              <tr>
-                <td>184</td>
-                <td>stonejohn</td>
-                <td>Stone</td>
-                <td>John</td>
-                <td>stonejohn@gmail.com</td>
-                <td>11-7-2014</td>
-                <td><span class="label label-info ">Pending</span></td>
-                <td><span class="label label-warning">Premiem</span></td>
-              </tr>
-              <tr>
-                <td>185</td>
-                <td>brucewayn</td>
-                <td>Bruce</td>
-                <td>Wayne</td>
-                <td>brucewayns@gmail.com</td>
-                <td>11-7-2014</td>
-                <td><span class="label label-success">Approved</span></td>
-                <td><span class="label label-danger">Admin</span></td>
-              </tr>
-              <tr>
-                <td>183</td>
-                <td>johndoe</td>
-                <td>John</td>
-                <td>Does</td>
-                <td>johndoe@gmail.com</td>
-                <td>11-7-2014</td>
-                <td><span class="label label-success">Approved</span></td>
-                <td><span class="label label-primary">Standard</span></td>
-              </tr>
-              <tr>
-                <td>184</td>
-                <td>stonejohn</td>
-                <td>Stone</td>
-                <td>John</td>
-                <td>stonejohn@gmail.com</td>
-                <td>11-7-2014</td>
-                <td><span class="label label-info ">Pending</span></td>
-                <td><span class="label label-warning">Premiem</span></td>
-              </tr>
-              <tr>
-                <td>185</td>
-                <td>brucewayn</td>
-                <td>Bruce</td>
-                <td>Wayne</td>
-                <td>brucewayns@gmail.com</td>
-                <td>11-7-2014</td>
-                <td><span class="label label-success">Approved</span></td>
-                <td><span class="label label-danger">Admin</span></td>
-              </tr>
-              <tr>
-                <td>184</td>
-                <td>stonejohn</td>
-                <td>Stone</td>
-                <td>John</td>
-                <td>stonejohn@gmail.com</td>
-                <td>11-7-2014</td>
-                <td><span class="label label-info ">Pending</span></td>
-                <td><span class="label label-warning">Premiem</span></td>
-              </tr>
-              <tr>
-                <td>183</td>
-                <td>johndoe</td>
-                <td>John</td>
-                <td>Does</td>
-                <td>johndoe@gmail.com</td>
-                <td>11-7-2014</td>
-                <td><span class="label label-success">Approved</span></td>
-                <td><span class="label label-primary">Standard</span></td>
-              </tr>
-              
-              
-            </table>
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
+
       </div>
     </div>
 
   </section>
+@endsection
+
+@section('script')
+{{-- $(function () {
+  $('#user-account').DataTable({
+    'paging'      : true,
+    'lengthChange': false,
+    'searching'   : true,
+    'ordering'    : true,
+    'info'        : true,
+    'autoWidth'   : false
+  })
+}) --}}
+
+$('#user-account').DataTable({
+  processing: true,
+  serverSide: true,
+  ajax: '{{ route('admin.account.getaccounts') }}',
+  columns: [
+      {data: 'id', name: 'id'},
+      {data: 'name', name: 'name'},
+      {data: 'user_profile.first_name', name: 'user_profile.first_name'},
+      {data: 'user_profile.last_name', name: 'user_profile.last_name'},
+      {data: 'email', name: 'email'},
+      {data: 'role', name: 'role'},
+      {{-- {data: 'roles[0].name', name: '<span class="label label-success">roles[0].name</span>'} --}}
+      {data: 'action', name: 'action'}
+  ]
+});
+
+{{-- <span class="label label-success">Approved</span> --}}
 @endsection
