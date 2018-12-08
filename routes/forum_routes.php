@@ -50,7 +50,7 @@ Route::group(['prefix' => 'forum'],function(){
 
     Route::post('vote',[
         'as' => 'forum.questionVote',
-        'uses' => 'ForumCotroller@questionVote'
+        'uses' => 'ForumController@questionVote'
     ]);
 
     Route::get('/tag/{id?}', [

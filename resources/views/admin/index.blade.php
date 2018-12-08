@@ -1,37 +1,113 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Admin Dashboard</div>
+<section class="content-header">
+    <h1>
+      Dashboard
+      <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Dashboard</li>
+    </ol>
+  </section>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+  <!-- Main content -->
+  <section class="content">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-blue">
+          <div class="inner">
+            <h3>150</h3>
 
-                    You are logged in!
-                        
-                    @role(('admin'))
-                        <h3>You are Admin User</h3>
-                    @endrole
+            <p>Standard User</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-xs-6">
+      <!-- small box -->
+      <div class="small-box bg-yellow">
+          <div class="inner">
+          <h3>44</h3>
 
-                    
-                    @role(('standard'))
-                        <h3>You are Standard User</h3>
-                    @endrole
+              <p>Premiem User</p>
+              </div>
+              <div class="icon">
+              <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+      </div>      
+      <!-- ./col -->
+      <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+          <div class="inner">
+            <h3>4</h3>
+            <p>Administrator</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+    </div>
 
-                    @role(('premiem'))
-                        <h3>You are Premiem User</h3>
-                    @endrole
+    <div class="row">
+            <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+                <div class="small-box bg-orange">
+                    <div class="inner">
+                    <h3>1023</h3>
 
+                    <p>Forum Posts</p>
+                    </div>
+                    <div class="icon">
+                    <i class="ion ion-help"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-        </div>
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-purple">
+                    <div class="inner">
+                    <h3>2536</h3>
+                    <p>Forum Answers</p>
+                    </div>
+                    <div class="icon">
+                    <i class="ion ion-chatbubbles"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                    <h3>485</h3>
+                    <p>Opportunity Posts</p>
+                    </div>
+                    <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
     </div>
-</div>
+      <!-- /.row -->
+      <!-- Main row -->
+
+      <!-- /.row (main row) -->
+
+  </section>
 @endsection

@@ -46,6 +46,9 @@ Route::group(['prefix' => 'admin','middleware' => ['role:admin']],function(){
     Route::get('/', function() {
         return view('admin.index');
     })->name('admin.index');
+
+    Route::resource('account', 'AdminAccountController');
+    
 });
 
 // Route::get('/opportunity', function() {
