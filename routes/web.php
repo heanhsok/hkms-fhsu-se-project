@@ -56,6 +56,12 @@ Route::group(['prefix' => 'admin','middleware' => ['role:admin'], 'as'=>'admin.'
 
     Route::get('education/{id}', 'AdminAccountController@education')->name('education.show');
     Route::get('education/{user_id}/edit/{edu_id}', 'AdminAccountController@education_edit')->name('education.edit');
+
+    Route::get('work/{id}', 'AdminAccountController@work')->name('work.show');
+    Route::get('work/{user_id}/edit/{work_id}', 'AdminAccountController@work_edit')->name('work.edit');
+
+    Route::get('volunteer/{id}', 'AdminAccountController@volunteer')->name('volunteer.show');
+    Route::get('volunteer/{user_id}/edit/{vol_id}', 'AdminAccountController@volunteer_edit')->name('volunteer.edit');
     
 });
 

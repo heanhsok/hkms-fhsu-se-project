@@ -43,6 +43,14 @@ class UserWorkExpsController extends Controller
         // dd($request);
         
         UserWorkExp::create($request->all());
+
+        $prev_url = url()->previous();
+        $is_admin = (strpos($prev_url, 'admin') !== false);
+
+        if ($is_admin) {
+            return redirect()->route('admin.work.show', $request->user_id);
+        }
+
         return redirect()->route('work.index');
     }
 
@@ -85,6 +93,15 @@ class UserWorkExpsController extends Controller
     {
         
         UserWorkExp::find($id)->fill($request->all())->save();
+
+        $prev_url = url()->previous();
+        $is_admin = (strpos($prev_url, 'admin') !== false);
+
+        if ($is_admin) {
+            $user_id = UserWorkExp::find($id)->user()->first()->id;
+            return redirect()->route('admin.work.show', $user_id);
+        }
+
         return redirect()->route('work.index');
     }
 
@@ -96,7 +113,18 @@ class UserWorkExpsController extends Controller
      */
     public function destroy($id)
     {
+
+        $user_id = UserWorkExp::find($id)->user()->first()->id;
+
         UserWorkExp::find($id)->delete();
+
+        $prev_url = url()->previous();
+        $is_admin = (strpos($prev_url, 'admin') !== false);
+
+        if ($is_admin) {
+            return redirect()->route('admin.work.show', $user_id);
+        }
+
         return redirect()->route('work.index');
     }
 }

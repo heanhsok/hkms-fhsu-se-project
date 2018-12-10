@@ -12,9 +12,7 @@
   <section class="content">
 
     <div class="row">
-      
-      @include('admin.includes.profile_box')
-
+        @include('admin.includes.profile_box')
       <div class="col-md-9">
         
         <div class="box box-primary">
@@ -27,26 +25,26 @@
             
             {{-- edit form --}}
 
-            <form action="{{route('education.update', ['id' => $user_education->id] )}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('work.update', ['id' => $work_experience->id] )}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     {{csrf_field()}}
                     
-                    School:
-                    <input type="text" name="school" class="form-control" value="{{$user_education->school}}">
-                    Degree:
-                    <input type="text" name="degree" class="form-control" value="{{$user_education->degree}}">
-                    Major:
-                    <input type="text" name="major" class="form-control" value="{{$user_education->major}}">
+                    Specialty:
+                    <input type="text" name="specialty" class="form-control" value="{{$work_experience->specialty}}">
+                    Position:
+                    <input type="text" name="position" class="form-control" value="{{$work_experience->position}}">
+                    Workplace:
+                    <input type="text" name="workplace" class="form-control" value="{{$work_experience->workplace}}">
                     Description:
-                    <textarea name="desc" id="desc" cols="5" rows="5" class="form-control">{{$user_education->desc}}</textarea>
+                    <textarea name="desc" id="desc" cols="5" rows="5" class="form-control">{{$work_experience->desc}}</textarea>
                     
                     Start Date:
-                    <input type="text" name="start_date" class="form-control" value="{{$user_education->start_date}}">
+                    <input type="text" name="start_date" class="form-control" value="{{$work_experience->start_date}}">
         
                     End Date:
-                    <input type="text" name="end_date" class="form-control" value="{{$user_education->end_date}}">
-                
-                    <br>
+                    <input type="text" name="end_date" class="form-control" value="{{$work_experience->end_date}}">
+        
+                    <hr>
                     <div class="form-group pull-right">
                         <div class="text-center">
                             <button class="btn btn-success" type="submit">Update</button>

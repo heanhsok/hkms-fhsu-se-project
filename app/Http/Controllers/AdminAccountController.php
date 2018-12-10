@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\UserEducation;
+use App\UserWorkExp;
+use App\UserVolunteerExp;
 use App\UserProfile;
 use Redirect;
 use DataTables;
@@ -160,4 +162,45 @@ class AdminAccountController extends Controller
             'user_education' => UserEducation::where('id',$edu_id)->first()
         ]);
     }
+
+
+    public function work($id) {
+        $user = User::where('id', $id)->first();
+        return view('admin.account.work')->with([
+            'user' => $user,
+            'user_profile' => $user->user_profile()->first(),
+            'user_work_experiences' => $user->user_work_experience()->get()
+        ]);
+    }
+
+    public function work_edit($user_id, $work_id) {
+        $user = User::where('id', $user_id)->first();
+
+        return view('admin.account.work_edit')->with([
+            'user' => $user,
+            'user_profile' => $user->user_profile()->first(),
+            'work_experience' => UserWorkExp::where('id',$work_id)->first()
+        ]);
+    }
+
+    public function volunteer($id) {
+        $user = User::where('id', $id)->first();
+        return view('admin.account.volunteer')->with([
+            'user' => $user,
+            'user_profile' => $user->user_profile()->first(),
+            'user_volunteer_experiences' => $user->user_volunteer_experience()->get()
+        ]);
+    }
+
+    public function volunteer_edit($user_id, $vol_id) {
+        $user = User::where('id', $user_id)->first();
+
+        return view('admin.account.volunteer_edit')->with([
+            'user' => $user,
+            'user_profile' => $user->user_profile()->first(),
+            'user_volunteer_exp' => UserVolunteerExp::where('id',$vol_id)->first()
+        ]);
+    }
+
+
 }
