@@ -9,7 +9,9 @@ use App\UserWorkExp;
 use App\UserVolunteerExp;
 use App\UserProfile;
 use Redirect;
+use Auth;
 use DataTables;
+use Hash;
 
 class AdminAccountController extends Controller
 {
@@ -200,6 +202,16 @@ class AdminAccountController extends Controller
             'user_profile' => $user->user_profile()->first(),
             'user_volunteer_exp' => UserVolunteerExp::where('id',$vol_id)->first()
         ]);
+    }
+
+    public function changepassword(Request $request) {
+        // dd(Auth::user());
+        // dd(Hash::make($request->password));
+        $user = Auth::user(); 
+        $user->password = Hash::make($request->password);
+        $user->save();
+        Auth::logout();
+        return redirect('/login');
     }
 
 

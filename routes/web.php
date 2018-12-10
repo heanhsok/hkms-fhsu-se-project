@@ -63,6 +63,7 @@ Route::group(['prefix' => 'admin','middleware' => ['role:admin'], 'as'=>'admin.'
     Route::get('volunteer/{id}', 'AdminAccountController@volunteer')->name('volunteer.show');
     Route::get('volunteer/{user_id}/edit/{vol_id}', 'AdminAccountController@volunteer_edit')->name('volunteer.edit');
     
+    Route::post('changepassword', 'AdminAccountController@changepassword')->name('changepassword');
 });
 
 Route::get('hello', 'AdminAccountController@getAccounts');
