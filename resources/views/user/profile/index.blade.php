@@ -110,7 +110,7 @@
                 <section id="content3">
                     <div class="col-md-12">
                         <div class="card-profile-info">
-                            <div class="card-header"><a href="{{route('volunteer.index')}}" target="_blank">Edit & AddNew New</a></div>
+                            <div class="card-header"><a href="{{route('volunteer.index')}}" target="_blank">Edit & Add New</a></div>
                             @foreach ($user_volunteer_experiences as $user_volunteer_experience)
                                 <p>{{$user_volunteer_experience->role}}</p>
                                 <ul>
