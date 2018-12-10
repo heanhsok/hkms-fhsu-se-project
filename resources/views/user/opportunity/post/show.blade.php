@@ -128,12 +128,13 @@ margin-left: 10px;
 margin-left: 10px;
 }
 .op-saved{
-margin-left: 40%;
+    margin-left: 40%;
 justify-content: center;
 text-align: center;
 width: 100px;
 height: 35px;
 background-color: #FBC1D5;
+float: left;
 
 }
 .op-card__like {
@@ -144,11 +145,21 @@ font-size: 18px;
 cursor: pointer;
 color: #000;
 }
-
 </style>
 
     <div class="container">
         <div class="col-xs-12 col-md-12 col-lg-12">
+                <div class="edit-op-btn">
+                    @if (Auth::user()->id == $post->user_id or Auth::user()->id == 3)
+                    <h5><a href="{{route('opportunity.post.edit',['opportunity'=>$post->page()->first()->type, 'post'=>$post->id])}}">Edit</a></h5>
+
+                    <form action="{{ route('opportunity.post.destroy', ['opportunity'=>$post->page()->first()->type, 'post'=>$post->id])}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Delete</button>
+                    </form>
+                    @endif
+            </div>
             <div class="row op-top-info">
                 <div class="row op-account">
                     <div class="op-acc-brief">
@@ -223,9 +234,9 @@ color: #000;
                                 </div>
                             </div>
 
-                            <div class="op-saved">
-                                <i class="fas fa-heart op-card__like"> Save</i>
-                            </div>
+                                <div class="op-saved">
+                                    <i class="fas fa-heart op-card__like"> Save</i>
+                                </div>
 
                             <script>
                                 $( document ).ready(function() {
@@ -241,6 +252,8 @@ color: #000;
                                     });
                                 });
                             </script>
+
+
 
                     </div>
                 </div>

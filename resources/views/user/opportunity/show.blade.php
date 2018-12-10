@@ -128,7 +128,7 @@
                         @foreach ($posts as $post)
                         <div class="col-xs-12 col-md-6 col-lg-4">
                                 <div class="card single-op-post">
-                                    <a href="#" class="op-card-cover" >
+                                    <a href="{{route('opportunity.show',['type' => $page->type])}}" class="op-card-cover" >
                                         <img src="{{asset('upload/picture/'.$post->picture)}}">
                                     </a>
                                     <div class="op-card-body">
@@ -137,7 +137,7 @@
 
                                             </div>
                                             <div class="op-card-body-after-top">
-                                                <h4 class="op-title"><a href="#">{{$post->title}}</a></h4>
+                                                <h4 class="op-title"><a href="{{route('opportunity.post.show',['opportunity'=>$page->type, 'post'=>$post->id])}}">{{$post->title}}</a></h4>
                                                 <span class="card__by">By: <a href="#" class="card__author" title="author">{{$post->user->name}}</a></span> <br>
                                                 <span class="op-deadline">Deadline: {{$post->end_date}}</span> <br>
                                                 <span class="op-category">Category: <a href="#" class="card__category">{{$post->category}} </a></span>
