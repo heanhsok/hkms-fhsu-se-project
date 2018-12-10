@@ -52,8 +52,8 @@ class OpportunityPagePostTest extends TestCase
         $this->assertTrue(\App\OpportunityPagePost::where('user_id',1)->first()->fill($updated)->save());
     }
 
-    public function deleteOpportunityPagePost()
+    public function testDeleteOpportunityPagePost()
     {
-        $this->assertEquals(1,\App\OpportunityPagePost::where('user_id',1)->delete());
+        $this->assertEquals(1,\App\OpportunityPagePost::where('user_id',1)->first()->delete());
     }
 }
