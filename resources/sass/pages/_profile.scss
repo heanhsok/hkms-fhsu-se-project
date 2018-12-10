@@ -1,0 +1,181 @@
+.top-profile-card{
+    margin-top: 15px;
+    padding:3%;
+	background:#fff;
+	box-shadow: 0px 0px 4px 0px #b0b3b7;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+}
+.profile-image{
+    text-align: center;
+}
+.profile-image img{
+    width: 250px;
+    height: 250px;
+    max-width: 250px;
+    max-height: 250px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+}
+
+.bottom {
+    margin-top: 25px;
+
+}
+
+// .btn{
+//     border-radius: 50%;
+//     width:32px;
+//     height:32px;
+//     line-height:18px;
+//   }
+
+.profile-summary{
+    background: #fff;
+    height: 100%;
+    text-align: left;
+}
+
+.profile-summary .profile-name{
+    font-family: 'Charmonman';
+	font-weight:600;
+}
+
+.profile-summary .short-des{
+    font-family: 'Charmonman';
+	font-weight:300;
+	font-size:15px;
+}
+.about-profile-brief{
+    margin-left: 15px;
+    justify-content: center;
+    i{
+        color: #6A737D;
+        margin-right: 5px;
+    }
+}
+.about-profile-brief .text-about{
+    font-family: 'Charmonman';
+	font-weight: 100;
+	font-size:15px;
+}
+
+.profile-content{
+    section {
+      display: none;
+      padding: 20px 0 0;
+      border-top: 1px solid #abc;
+    }
+
+    input {
+      display: none;
+    }
+
+    label {
+      display: inline-block;
+      margin: 0 0 -1px;
+      padding: 15px 25px;
+      font-weight: 600;
+      text-align: center;
+      color: #abc;
+      border: 1px solid transparent;
+    }
+
+    label:before {
+      font-family: fontawesome;
+      font-weight: normal;
+      margin-right: 10px;
+    }
+    label:hover {
+      color: #789;
+      cursor: pointer;
+    }
+
+    input:checked + label {
+      color: #0af;
+      border: 1px solid #abc;
+      border-top: 2px solid #0af;
+      border-bottom: 1px solid #fff;
+    }
+
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3,
+    #tab4:checked ~ #content4,
+    #tab5:checked ~ #content5 {
+      display: block;
+    }
+
+    @media screen and (max-width: 800px) {
+      label {
+        font-size: 0;
+      }
+      label:before {
+        margin: 0;
+        font-size: 18px;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      label {
+        padding: 15px;
+      }
+    }
+}
+.profile-edit{
+
+    a:link, a:visited {
+  background-color: #2e7ba8;
+  color: white;
+  padding: 7px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+
+    a:hover, a:active {
+  background-color: #B14021;
+}
+}
+
+.card-profile-info{
+    padding: 3px 30px;
+	background-color: white;
+    margin-bottom: 20px;
+    .card-header a{
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    p{
+        margin-top: 10px;
+        font-family: 'Playfair Display', serif;
+        font-weight: bold;
+	    letter-spacing: 1px;
+    }
+    ul {
+      list-style-type: none;
+      li {
+        position: relative;
+        font-size: 18px;
+      }
+      li:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -20px;
+        top: 10px;
+        width: 12px;
+        height: 12px;
+        border: 1px solid #018df5;
+        background: #018df5;
+        border-radius: 50%;
+        box-shadow: 0px 0px 0px 3px #fff inset;
+      }
+    }
+}

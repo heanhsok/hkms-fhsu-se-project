@@ -13701,25 +13701,24 @@ module.exports = __webpack_require__(39);
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
 __webpack_require__(12);
-__webpack_require__(36);
-__webpack_require__(37);
-__webpack_require__(38);
 
-// window.Vue = require('vue');
+__webpack_require__(36);
+
+__webpack_require__(37);
+
+__webpack_require__(38); // window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
 // const app = new Vue({
 //     el: '#app'
 // });
+
 
 var questionId = 0;
 var questionBodyElement = null;
@@ -13728,10 +13727,8 @@ var questionBodyElement = null;
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 window._ = __webpack_require__(13);
 window.Popper = __webpack_require__(3).default;
-
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -13743,17 +13740,15 @@ try {
 
   __webpack_require__(15);
 } catch (e) {}
-
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
+
 window.axios = __webpack_require__(16);
-
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
  * all outgoing HTTP requests automatically have it attached. This is just
@@ -13767,17 +13762,13 @@ if (token) {
 } else {
   console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
-
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
-
 // import Echo from 'laravel-echo'
-
 // window.Pusher = require('pusher-js');
-
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',
 //     key: process.env.MIX_PUSHER_APP_KEY,
@@ -35961,9 +35952,9 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports) {
 
 $(document).ready(function () {
-	$('.nav-trigger').click(function () {
-		$('.side-nav').toggleClass('visible');
-	});
+  $('.nav-trigger').click(function () {
+    $('.side-nav').toggleClass('visible');
+  });
 });
 
 /***/ }),

@@ -1,9 +1,127 @@
 @extends('user.layouts.app')
 @section('content')
     @include('includes.main-nav')
+    <script>
+        $( document ).ready(function() {
+            clicked = true;
+            $( ".card__like" ).click(function() {
+                if(clicked){
+                    $(this).css('color', '#9E8881');
+                    clicked  = false;
+                } else {
+                    $(this).css('color', '#CA2934');
+                    clicked  = true;
+                }
+            });
+        });
+    </script>
+    <style >
+        .card {
+        /* display: block; */
+        margin-bottom: 20px;
+        line-height: 1.42857143;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+        transition: box-shadow .25s;
+        }
+        .card:hover {
+        box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        .op-card-cover{
+        width: 100%;
+        height:250px;
+        border-top-left-radius:2px;
+        border-top-right-radius:2px;
+        display:block;
+        overflow: hidden;
+        }
+        .op-card-cover img{
+                width: 100%;
+                height: 250px;
+                object-fit:cover;
+                transition: all .25s ease;
+        }
+        .op-card-body{
+        padding:15px;
+        text-align:left;
+        // margin-bottom: 15px;
+        }
+        .op-title {
+            width: 100%;
+            font-family: 'Raleway', sans-serif;
+            margin-top:0px;
+            font-weight: 500;
+            font-size: 1.4em;
+        }
+        .op-title a{
+            color: #FA5316;
+            text-decoration: none !important;
+        }
+        .op-card-footer {
+        border-top: 1px solid #D4D4D4;
+        }
+        .op-card-footer a {
+        color: #FA5316;
+        text-decoration: none !important;
+        padding:10px;
+        font-weight:600;
+        text-transform: uppercase
+        }
+        .op-card-body-top{
+        width: 100%;
+        height: 20px;
+        // position: absolute;
+        margin-bottom: 10px;
+        }
+        .card__like {
+        font-size: 18px;
+        cursor: pointer;
+        color: #9E8881;
+        }
+
+        .card__clock {
+        width: 18px;
+        vertical-align: middle;
+        fill: #FA5316;
+        }
+        .card__time {
+        font-size: 14px;
+        color: #FA5316;
+        vertical-align: middle;
+        margin-left: 5px;
+        }
+        .card__clock-info {
+        float: right;
+        }
+        .card__by {
+        font-size: 14px;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 500;
+        }
+        .card__author {
+        text-decoration: none;
+        color: #AD7D52;
+        }
+        .card__category {
+        text-decoration: none;
+        color: #AD7D52;
+        }
+        .op-deadline{
+        font-size: 14px;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 500;
+        }
+        .op-category{
+        font-size: 14px;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 500;
+        }
+    </style>
+
     <div class="container forum-home">
                 @role(('premiem'))
-                <h3><a href="{{route('opportunity.post.create',['type'=>'event'])}}">Create New Opportunity</a></h3>
+                <h5 class="create-opportunity"><a  href="{{route('opportunity.post.create',['type'=>'event'])}}">Create New Opportunity</a></h5>
                 @endrole
                 <h1>All Type of Opportunities:</h1>
                 @foreach($pages as $page)
@@ -12,40 +130,30 @@
                     </h3>
                     <div class="scrolling-wrapper-flexbox">
                         @foreach ($page->posts()->take(5)->get() as $post)
-                        <div class="card card--1">
-                                <div class="card__info-hover">
-                                    <div class="card__clock-info">
-                                        <svg class="card__clock"  viewBox="0 0 24 24"><path d="M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M11,14H13V8H11M15,1H9V3H15V1Z" />
-                                        </svg><span class="card__time">Recently</span>
-                                    </div>
+                            <div class="col-xs-12 col-md-6 col-lg-4">
+                                    <div class="card single-op-post">
+                                        <a href="{{route('opportunity.post.show',['opportunity'=>$page->type, 'post'=>$post->id])}}" class="op-card-cover" >
+                                            <img src="{{asset('upload/picture/'.$post->picture)}}">
+                                        </a>
+                                        <div class="op-card-body">
+                                                <div class="op-card-body-top">
+                                                    <i class="fas fa-heart card__like"></i>
 
-                                </div>
-                                <div class="card__img" style="background-image: url('{{asset('upload/picture/'.$post->picture)}}');"></div>
-                                <a href="#" class="card_link">
-                                    <div class="card__img--hover" style="background-image: url('{{asset('upload/picture/'.$post->picture)}}');"></div>
-                                </a>
-                                <div class="card__info">
-                                    <span class="card__category"> {{$post->category}} </span>
-                                    <h4 class="card__title"><a href="{{route('opportunity.post.show',['opportunity'=>$page->type, 'post'=>$post->id])}}">{{$post->title}}</a></h4>
-                                <span class="card__by">by <a href="#" class="card__author" title="author">{{$post->user->name}}</a></span>
-                                </div>
-                        </div>
+                                                </div>
+                                                <div class="op-card-body-after-top">
+                                                    <h4 class="op-title"><a href="{{route('opportunity.post.show',['opportunity'=>$page->type, 'post'=>$post->id])}}">{{$post->title}}</a></h4>
+                                                    <span class="card__by">By: <a href="#" class="card__author" title="author">{{$post->user->name}}</a></span> <br>
+                                                    <span class="op-deadline">Deadline: {{$post->end_date}}</span> <br>
+                                                    <span class="op-category">Category: <a href="#" class="card__category">{{$post->category}} </a></span>
+                                                </div>
+                                        </div>
+                                        <div class="row op-card-footer">
+                                            <a href="#" class="btn btn-link btn-block">Read More</a>
+                                        </div>
+                                    </div>
+                            </div>
                         @endforeach
                     </div>
-                    <!-- <div class="row cardss">
-                        <img src="{{asset('upload/picture/'.$post->picture)}}" alt="" width="300px" class="opportunity-post-img-cover">
-                        <ul>
-                        <li>Title: <a href="{{route('opportunity.post.show',['opportunity'=>$page->type, 'post'=>$post->id])}}">{{$post->title}}</a></li>
-                            <li>institution: {{$post->institution}}</li>
-                            <li>category: {{$post->category}}</li>
-                            {{-- <li>description: {{$post->description}}</li>
-                            <li>requirement: {{$post->requirement}}</li>
-                            <li>contact: {{$post->contact}}</li>
-                            <li>location: {{$post->location}}</li>
-                            <li>Open Date: {{$post->start_date}}</li>
-                            <li>Close Date: {{$post->end_date}}</li> --}}
-                        </ul>
-                    </div> -->
                 @endforeach
     </div>
 

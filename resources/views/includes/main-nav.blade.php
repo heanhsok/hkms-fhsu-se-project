@@ -7,10 +7,10 @@
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto">
 		  <li class="nav-item">
-			<a class="nav-link" href="/forum"><i class="fas fa-comments fa-fw"></i>Forum</a>
+			<a class="nav-link" href="/forum"><i class="fas fa-comments fa-fw"></i>  Forum</a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link " href="/opportunity"><i class="fas fa-briefcase fa-fw"></i>Opportunity</a>
+			<a class="nav-link " href="/opportunity"><i class="fas fa-briefcase fa-fw"></i>  Opportunity</a>
 		  </li>
 		</ul>
 		<form class="form-inline">
@@ -19,7 +19,7 @@
 		</form>
 		<ul class="navbar-nav">
 			<li class="nav-item">
-  			<a class="nav-link" href="http://nedcom.edu"><i class="fas fa-heart"></i>Saved</a>
+  			<a class="nav-link" href="http://nedcom.edu"><i class="fas fa-heart"></i>  Saved</a>
   		  </li>
 		  @guest
 			<li class="nav-item">

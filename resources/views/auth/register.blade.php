@@ -65,7 +65,7 @@
                                                     <option value="Royal University of Phnom Penh">Royal University of Phnom Penh</option>
                                                     <option value="CamEd">CamEd</option>
                                                 </select>
-                                                {{-- <medium id="passwordHelpInline">Cannot find your university? <a href="#">Add Now!</a></medium> --}}
+                                                <!-- <medium id="passwordHelpInline">Cannot find your university? <a href="#">Add Now!</a></medium> -->
                                             </div>
                                             <div class="form-group">
                                                 <div class="maxl">
@@ -96,7 +96,7 @@
                                             <div class="form-group">
                                                 <input type="password" class="form-control"  placeholder="Confirm Password *" value=""  name="password_confirmation" id='password_confirmation_std' />
                                             </div>
-                                            
+
                                             <div class="checkbox mb-3">
                                                 <label>
                                                 <input type="checkbox" value="agree"> By signing up you indicate that you have read and agree to nEdCom's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
@@ -105,7 +105,7 @@
                                             <div class='form-group'>
                                                 <input type="submit" class="btnRegister"  value="Register" id='register_std'/>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </form>
@@ -194,7 +194,7 @@
                                                 <input type="checkbox" value="agree"> By signing up you indicate that you have read and agree to nEdCom's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
                                                 </label>
                                             </div>
-                                            <input type="submit" class="btnRegister"  value="Register" id='register_prm'/> 
+                                            <input type="submit" class="btnRegister"  value="Register" id='register_prm'/>
                                         </div>
                                     </div>
                                 </form>
