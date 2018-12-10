@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\UserEducation;
 use App\UserProfile;
 use Redirect;
 use DataTables;
@@ -76,7 +77,12 @@ class AdminAccountController extends Controller
      */
     public function edit($id)
     {
+        $user = User::where('id',$id)->first();
         //
+        return view('admin.account.edit')->with([
+            'user' => $user,
+            'user_profile' => $user->user_profile()->first()
+        ] );
     }
 
     /**
@@ -134,5 +140,24 @@ class AdminAccountController extends Controller
 
     public function setting() {
         return view('admin.setting');
+    }
+
+    public function education($id) {
+        $user = User::where('id', $id)->first();
+        return view('admin.account.education')->with([
+            'user' => $user,
+            'user_profile' => $user->user_profile()->first(),
+            'user_educations' => $user->user_education()->get()
+        ]);
+    }
+
+    public function education_edit($user_id, $edu_id) {
+        $user = User::where('id', $user_id)->first();
+
+        return view('admin.account.education_edit')->with([
+            'user' => $user,
+            'user_profile' => $user->user_profile()->first(),
+            'user_education' => UserEducation::where('id',$edu_id)->first()
+        ]);
     }
 }

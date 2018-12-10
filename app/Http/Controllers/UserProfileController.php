@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 class UserProfileController extends Controller
 {
@@ -116,7 +117,17 @@ class UserProfileController extends Controller
 
         $user_profile->save();
 
+        // dd(Route::currentRouteName());
+
+        $prev_url = url()->previous();
+        $is_admin = (strpos($prev_url, 'admin') !== false);
+
+        if ($is_admin) {
+            return redirect()->route('admin.account.show', $id);
+        }
+
         return redirect()->route('profile.index');
+
     }
 
     /**

@@ -53,6 +53,9 @@ Route::group(['prefix' => 'admin','middleware' => ['role:admin'], 'as'=>'admin.'
     Route::get('getaccounts', 'AdminAccountController@getAccounts')->name('account.getaccounts');
 
     Route::get('setting', 'AdminAccountController@setting')->name('setting');
+
+    Route::get('education/{id}', 'AdminAccountController@education')->name('education.show');
+    Route::get('education/{user_id}/edit/{edu_id}', 'AdminAccountController@education_edit')->name('education.edit');
     
 });
 

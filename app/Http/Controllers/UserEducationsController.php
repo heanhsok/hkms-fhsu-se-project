@@ -40,7 +40,17 @@ class UserEducationsController extends Controller
     public function store(Request $request)
     {
         //
+
+        // dd($request->user_id);
         UserEducation::create($request->all());
+
+        $prev_url = url()->previous();
+        $is_admin = (strpos($prev_url, 'admin') !== false);
+
+        if ($is_admin) {
+            return redirect()->route('admin.education.show', $request->user_id);
+        }
+
         return redirect()->route('education.index');
     }
 
@@ -82,6 +92,16 @@ class UserEducationsController extends Controller
         //
         // dd($request);
         UserEducation::find($id)->fill($request->all())->save();
+
+
+        $prev_url = url()->previous();
+        $is_admin = (strpos($prev_url, 'admin') !== false);
+
+        if ($is_admin) {
+            $user_id = UserEducation::find($id)->user()->first()->id;
+            return redirect()->route('admin.education.show', $user_id);
+        }
+
         return redirect()->route('education.index');
     }
 
@@ -94,7 +114,18 @@ class UserEducationsController extends Controller
     public function destroy($id)
     {
         // 
+        
+        $user_id = UserEducation::find($id)->user()->first()->id;
+        
         UserEducation::find($id)->delete();
+
+        $prev_url = url()->previous();
+        $is_admin = (strpos($prev_url, 'admin') !== false);
+
+        if ($is_admin) {
+            return redirect()->route('admin.education.show', $user_id);
+        }
+
         return redirect()->route('education.index');
     }
 }

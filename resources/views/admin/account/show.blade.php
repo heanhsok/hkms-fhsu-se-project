@@ -38,6 +38,10 @@
               </li>
 
               <li class="list-group-item">
+                <b>Gender</b> <a class="pull-right">{{$user_profile->gender}}</a>
+              </li>
+
+              <li class="list-group-item">
                 <b>Followers</b> <a class="pull-right">132</a>
               </li>
               <li class="list-group-item">
@@ -53,6 +57,7 @@
 
             <a href="#" class="btn btn-danger btn-block"><b>Points: 350</b></a>
           </div>
+          <a href="{{route('admin.account.edit',$user->id)}}" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
           <!-- /.box-body -->
         </div>
         <!-- /.box -->
@@ -74,19 +79,19 @@
             <br><br>
             <p>{{$user_profile->biography}}</p>
             <hr>
-            <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+            <strong><i class="fa fa-book margin-r-5"></i><a href="{{route('admin.education.show',$user->id)}}">Education</a> </strong>
             <br><br>
             @foreach ($user_educations as $user_education)
               <p class="text-muted">
                   <b>{{date('Y',strtotime($user_education->start_date))}} to {{date('Y',strtotime($user_education->end_date))}}:</b>
                   {{$user_education->degree}} in {{$user_education->major}}, {{$user_education->school}}
                   <ul>
-                    <li><b>GPA:</b> {{$user_education->grade}}</li>
+                    {{-- <li><b>GPA:</b> {{$user_education->grade}}</li> --}}
                     <li><b>Major:</b> {{$user_education->major}}</li>
                     <li><b>Degree:</b> {{$user_education->degree}}</li>
                     <li><b>school:</b> {{$user_education->school}}</li>
                     <li><b>From:</b> {{$user_education->start_date}}</li>
-                    <li><b>To:</b> {{$user_education->start_date}}</li>
+                    <li><b>To:</b> {{$user_education->end_date}}</li>
                   </ul>
               </p>
             @endforeach
