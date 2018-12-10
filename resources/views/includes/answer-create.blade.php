@@ -1,6 +1,5 @@
 <div class="container-fluid">
-    <header><h4>Submit Your Answer</h4></header>
-     <div class="col-sm-12 q-create">
+     <div class="col-sm-12 q-create" style="margin-top: 40px;">
      	<div class="profile-post">
             @if(Auth::user() != '')
             <img alt="profile picture" src="{{ asset('upload/picture/'.'default.png')}}">
