@@ -15,8 +15,9 @@ RegisterStandardUserTest
 Steps:
 1. Visit the website
 2. Click on "Sign Up" button
-3. Fill in the requirement information
+3. Fill in the required information
 4. CLick on "Register" button
+5. Successfully Registered and Redirected to Home Page
 
 
 RegisterPremiemUsertest
@@ -24,12 +25,33 @@ RegisterPremiemUsertest
 1. Visit the website
 2. Click on "Sign Up" button
 3. Click on "Register as Professor/Recruiter" button
-4. Fill in the requirement information
+4. Fill in the required information
 5. CLick on "Register" button
+6. Successfully Registered and Redirected to Home Page
 
 LoginTest
 testLogin():
+1. Visit the website
+2. Click on "Login" button
+3. Type in username and password
+4. Click on "Login"
+5. Successfully Logged in and Redirected to Home Page
 
 CreateOpportunityPagePostTest
 - testCreateOpportunityPagePost():
-1.
+1. Visit the website
+2. Login in as premiem user
+3. Visit "/opportunity" page
+4. Upload a picture
+5. Fill in all the requirement information
+6. Click on "Create"
+7. Successfully created a post in opportunity page 
+
+CreateForumQuestionTest
+- testCreateForumQuestion():
+1. Visit the website
+2. Login in as standard user
+3. Visit "/forum" page
+4. Type in question and description of the question
+5. Click submit
+6. Successfully created a forum question 

@@ -43,3 +43,9 @@ testDeleteUserVolunteerExp() : delete an existing volunteer experience record of
 testCreateOpportunityPagePost() : create an post, assign it a type, and assign it to a user
 updateOpportunityPagePost() : update an existing an existing opportunity page post
 deleteOpportunityPagePost() : delete an existing an existing opportunity page post
+
+- ForumCreateQuestionTest
+
+testCreateForumQuestion(): create a forum question and assign it to a user
+testUpdateForumQuestion(): update an existing forum question 
+testDeleteForumQuestion(): delete an existing forum question

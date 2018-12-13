@@ -19,7 +19,7 @@ class RegisterStandardUserTest extends DuskTestCase
             $browser->visit('/')
                     ->clickLink('Sign up')
                     ->assertSee('Register')
-                    ->value('#firstname_std','john')
+                    ->value('#firstname_std','john') 
                     ->value('#lastname_std','cena')
                     ->value('#major_std','IT Management')
                     ->value('#degree_std','Phd')

@@ -5,10 +5,10 @@
                     <p class="profileName">{{ Auth::user() != '' ? Auth::user()->name : 'Guest' }}</p>
                 </div>
                 <form action="{{ route('forum.storeQuestion') }}" method="post">
-                    <textarea name="header" rows="1" placeholder="What's on your mind?" required></textarea>
-                    <textarea name="description" rows="3" placeholder="Tell me more..." required></textarea></br>
+                    <textarea name="header" id="header" rows="1" placeholder="What's on your mind?" required></textarea>
+                    <textarea name="description" id="description" rows="3" placeholder="Tell me more..." required></textarea></br>
                     @foreach($tags as $index => $tag)
-                    <input type="checkbox" name="tags[]" style="margin:0px;" value="{{ $tag->id }}">
+                    <input type="checkbox" name="tags[]" style="margin:0px;" value="{{ $tag->id }}" checked>
                     {{$tag->description}}
                     @endforeach
                     <div class="container-fluid q-create-footer">
@@ -16,7 +16,7 @@
                             </div>
                             <div class="right-create-footer">
                                 <ul>
-                                   <li><button style="padding-top: 0px" type="submit" class="btn btn-link">Submit</button></li>
+                                   <li><button style="padding-top: 0px" type="submit" class="btn btn-link" id="submit">Submit</button></li>
                                     <input type="hidden" value="{{ Session::token() }}" name="_token">
                                 </ul>
                             </div>

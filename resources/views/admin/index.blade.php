@@ -20,7 +20,7 @@
         <!-- small box -->
         <div class="small-box bg-blue">
           <div class="inner">
-            <h3>150</h3>
+            <h3>15</h3>
 
             <p>Standard User</p>
           </div>
@@ -35,7 +35,7 @@
       <!-- small box -->
       <div class="small-box bg-yellow">
           <div class="inner">
-          <h3>44</h3>
+          <h3>10</h3>
 
               <p>Premiem User</p>
               </div>
@@ -50,7 +50,7 @@
         <!-- small box -->
         <div class="small-box bg-red">
           <div class="inner">
-            <h3>4</h3>
+            <h3>1</h3>
             <p>Administrator</p>
           </div>
           <div class="icon">
