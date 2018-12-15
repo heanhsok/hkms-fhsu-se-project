@@ -1,0 +1,10 @@
+This file contains information about:
+Anything else that your program requires to be run? 
+(Do not include publicly available or commercial software such as Java JDK packages or database software. 
+We should not need special commercial software to run your software. ) 
+
+1. PHP Web Server (XAMPP/WAMPP/LAMP)
+2. MySQL Database
+3. Composer
+4. Node Package Manager (NPM)
+5. Laravel Framework

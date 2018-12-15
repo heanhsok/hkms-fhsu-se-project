@@ -1,0 +1,18 @@
+
+This file contains information about:
+Shell-scripts, CGI scripts, HTML files, and any and all other files needed to run the program
+
+
+Composer Command
+- composer install -> to install code dependencies/libraries for laravel application
+
+Laravel Command
+- php artisan key:generate -> to generate a new key to the .env file that is unique to the machine that runs the application
+- php artisan serve -> to start running the application on web server
+- php artisan migrate -> to create table and generate table schema
+- php artisan db:seed -> to load testing data to the database
+
+NPM Command
+- npm install -> to install frontend code dependecies/libraries for CSS and Javascript
+- npm run watch -> to automatically recompile the CSS and Javascript when any changes in files occur
+
