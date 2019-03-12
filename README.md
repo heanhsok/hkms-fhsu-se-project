@@ -1,54 +1,69 @@
-## HKMS-FHSU-SE-Project 
-Installation Instructions
+## NEDCOM (Networking, EDucation, and COMmunication)<br>
+Simple web-based application for university students.<br>
 
+<h2>Installation</h2>
 <h3>Recommended Method:</h3>
-Build using docker
-Please install <a href="https://docs.docker.com/install/">Docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a> based on your operating system.
+Build using docker</br>
+Please install <a href="https://docs.docker.com/install/">Docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a> based on your operating system.</br></br>
+clone project and in the project directory, run </br>
+$ git submodule update --init --recursive <br>
+will install laradock submodule.</br></br>
+Then copy the project .env file</br>
+$ cp .env.example .env</br>
+Edit .env file by changing DB_HOST to mysql</br>
+Edit /config/database.php and set DB_HOST = mysql and DB_DATABASE, DB_USERNAME, DB_PASSWORD = same as in your .env file<br><br>
+Configure laradock</br>
+$ cd laradock</br>
+Copy laradock .env file</br>
+$ cp env-example .env</br>
+Edit laradock/.env - set MYSQL_VERSION=5.6 and MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD to be same as in the root project's .env file</br></br>
+
+To start the docker containers<br>
+$ cd laradock</br>
+$ docker-compose build --no-cache mysql</br>
+will build the specified version of mysql. By default, laradock will pull latest version of mysql which is not compatible with php > 7</br>
+$ docker-compose up -d mysql nginx phpmyadmin</br>
+will start the three containers<br><br>
+
+Then, execute the workspace<br>
+$ cd laradock</br>
+$ docker-compose exec workspace bash</br>
+From inside the workspace container bash, run the following commands:<br>
+$ composer install<br>
+$ composer update<br>
+$ php artisan key:generate<br>
+$ php artisan migrate<br>
+$ php artisan db:seed<br><br>
+
+After migration is successful, you can now access project interface through<br>
+http://localhost<br>
+and phpmyadmin interface is at<br>
+http://localhost:8080<br>
 
 
 <h3>Alternatively, build on host machine</h3>
-<h3>Pre-Requisites</h3>
-Make sure you have installed SQL and Apache Web Server
-Based on your operating system, download and install one of the followings:
-+ XAMPP (X-OS)
-+ WAMP (Windows)
-+ LAMPP (Linux)
-Make sure you have PHP version >= 7 running on your machine. To test your php version, run the following command:
-  #php --version
+Please install MySQL 5.6, PHP >= 7, <a href="https://getcomposer.org/download/">Composer</a> and a web server (wamp, xampp, ..) based on your operating system.<br><br>
+#Install project dependency<br>
+Clone the project then navigate to the project directory and run:<br>
+$ composer install<br>
+$ composer update<br>
+$ php artisan key:generate<br><br>
 
-<h3>Set Up</h3>
-1. Download project
-Find the code file packaged in the project folder and save it,
-or alternatively,
-Clone from the project repository by entering the following command:
-  #git clone https://github.com/heanhsok/hkms-fhsu-se-project 
-2. Install project dependency
-Download Composer here. Then navigate to the project folder and run the installation by typing the following command:
-  #composer install
-  #composer update
-3. Generate a new key for your .env file
-On the project directory, type
-  #php artisan key:generate
-4. Create a database
-Make sure your SQL server is up and running.
-Through phpMyAdmin interface:
-Open your browser and type the following url: localhost/phpMyAdmin
-Give your database a name and click create to create new database.
+Then copy the project .env file</br>
+$ cp .env.example .env</br>
+Edit /config/database.php and set DB_HOST = mysql and DB_DATABASE, DB_USERNAME, DB_PASSWORD = same as in your .env file<br><br>
 
-5. Configure .env file
-Change the name of the sql database, the username, and password, and make sure to save as .env and not .env.example
-* By default, the username is root and there is no password.
+#Create a database<br>
+Run your web server and mysql server<br>
+Then create a database with name as specified in your .env file<br>
 
-6. Run Database Migration and Seeder to roll the database fields and populate it with test data.
-Type the following command:
-  #php artisan migrate
-  #php artisan db:seed
-7. Run
-Make sure your XAMPP/WAMPP/LAMP server is running
-Execute the following command:
-  #php artisan serve
-Will output the following script:
-Laravel development server started: <http://{host}:{port}>
+#Run Database Migration and Seeder</br>
+$ php artisan migrate<br>
+$ php artisan db:seed<br>
+will roll the database fields and populate it with test data.<br>
+$ php artisan serve<br>
+will output the following script:</br>
+Laravel development server started: <http://{host}:{port}><br>
 
-Copy the address above to your browser. The project should now run.
+Copy the address above to your browser. The project should now run.<br>
 Congratulations! You’re using nEdCom application!
