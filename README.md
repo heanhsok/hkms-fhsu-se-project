@@ -1,7 +1,13 @@
 ## HKMS-FHSU-SE-Project 
 Installation Instructions
 
-*****Pre-Requisites********
+<h3>Recommended Method:</h3>
+Build using docker
+Please install <a href="https://docs.docker.com/install/">Docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a> based on your operating system.
+
+
+<h3>Alternatively, build on host machine</h3>
+<h3>Pre-Requisites</h3>
 Make sure you have installed SQL and Apache Web Server
 Based on your operating system, download and install one of the followings:
 + XAMPP (X-OS)
@@ -10,7 +16,7 @@ Based on your operating system, download and install one of the followings:
 Make sure you have PHP version >= 7 running on your machine. To test your php version, run the following command:
   #php --version
 
-******Set Up*******
+<h3>Set Up</h3>
 1. Download project
 Find the code file packaged in the project folder and save it,
 or alternatively,
