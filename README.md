@@ -1,5 +1,6 @@
 ## NEDCOM (Networking, EDucation, and COMmunication)<br>
 Simple web-based application for university students.<br>
+Read more about project <a href="https://github.com/heanhsok/hkms-fhsu-se-project/blob/master/Report3-Final.pdf">here.</a>
 
 <h2>Installation</h2>
 <h3>Recommended Method:</h3>
